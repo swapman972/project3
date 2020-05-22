@@ -1,0 +1,2 @@
+class Desktop < ApplicationRecord
+end
