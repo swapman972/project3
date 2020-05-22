@@ -6,4 +6,4 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 jordan = Desktop.create(owner: "Jordan", age: 24, adult: true, bio: "Backend master")
-steve = Desktop.create(owner: "Stephen", species: 30, adult: true, bio: "Frontend sensei")
+steve = Desktop.create(owner: "Stephen", age: 30, adult: true, bio: "Frontend sensei")
