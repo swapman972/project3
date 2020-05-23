@@ -9,7 +9,9 @@ const login = () => {
             e.target.username.value = ""
             const loginScreen = document.getElementById('loginScreen')
             loginScreen.style.display = "none"
-                
+            const x = document.getElementById("loginSound")
+            console.log(x)
+            x.play()
         }
     })  
 }

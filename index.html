@@ -8,16 +8,21 @@
         <!--STYLES-->
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/notes.css">
+
+        <!--AUDIO-->
+        <audio id="loginSound">
+            <source src="app/assets/sounds/login.mp3" type="audio/mpeg">
+        </audio>
     </head>
     <body>
         <div id="container">
 
-            <!-- <div id="loginScreen" class="">
+            <div id="loginScreen" class="">
                 <form id="loginForm">
                     <p class="font-white loginIcon"></p>
                     <input type="text" name="username" placeholder="Enter Username">
                 </form>
-            </div> -->
+            </div>
 
             
             <nav id="systemNav">
@@ -91,13 +96,13 @@
             
             
             <div id="folder1" class="appFolder" ondblclick="divOpen1()">
-                <img class="folderSize" src="https://freesvg.org/img/Folder-1.png">
+                <a href="#"><img id="" class="folderSize" src="https://freesvg.org/img/Folder-1.png"></a>
                 <br>
                 <span class="folderName">FOLDER 1</span>
             </div>
             
             <div id="folder2" class="appFolder" ondblclick="divOpen1()">
-                <img class="folderSize" src="https://freesvg.org/img/Folder-1.png">
+                <a href="#"><img id="" class="folderSize" src="https://freesvg.org/img/Folder-1.png"></a>
                 <br>
                 <span class="folderName">FOLDER 2</span> 
             </div>
@@ -136,7 +141,7 @@
                  <div id="dock">
                    <ul>
                       <li >
-                        <span>APP 1</span>
+                        <span>NOTES</span>
                         <a href="#notes"><img id="appNotes" src="https://getdrawings.com/free-icon-bw/instagram-small-icon-9.png"/></a>
                       </li>
                       <li>
