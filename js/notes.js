@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // we need to store the desktop Id so i can access the notes correspongind to that desktop
     // const desktopId
-    const noteList = document.getElementById('savedNotes').firstElementChild
+    const noteList = document.getElementById('notesList')
     const noteInfo = document.getElementById('newNote')
     const noteTitle = noteInfo.getElementsByClassName('noteTitle')[0]
 
