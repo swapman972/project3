@@ -43,8 +43,10 @@ document.addEventListener('click', e => {
     }
 })
 
-const displayWidgets = () => {
-    
+const widgetDate = () => {
+    const today = new Date now(2018, 11, 24)
+    const dateDisplay = document.querySelector('#date-time')
+
 }
 
 
