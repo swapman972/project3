@@ -1,14 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
     // we need to store the desktop Id so i can access the notes correspongind to that desktop
     // const desktopId
-    const notelist = document.getElementById('savedNotes')
+    const noteList = document.getElementById('savedNotes')
     const noteInfo = document.getElementById('newNote')
     const noteTitle = noteInfo.getElementsByClassName('noteTitle')[0]
 
     function renderNoteTitle(aNote) {
         let n = document.createElement('li')
+        n.id = aNote.id
         n.innerHTML = `${aNote.title}`
-        notelist.appendChild(n)
+        noteList.appendChild(n)
+    }
+
+    function renderNoteInfo(aNote) {
+        noteTitle.innerHTML = `<h2>${aNote.title}</h2>`
+        let n = document.createElement('li')
+        n.innerHTML = `${aNote.content}`
+        noteTitle.appendChild(n)
     }
 
     fetch('http://localhost:3000/notes')
@@ -20,5 +28,15 @@ document.addEventListener('DOMContentLoaded', () => {
         myNotes.forEach(element => {
             renderNoteTitle(element)
         });
+    })
+
+    noteList.addEventListener('click', (e) =>{
+        if(e.target.tagName === "LI"){
+            fetch(`http://localhost:3000/notes/${e.target.id}`)
+            .then(resp => resp.json())
+            .then(note => {
+                renderNoteInfo(note)
+            })
+        }
     })
 })
