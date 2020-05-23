@@ -10,7 +10,7 @@ const login = () => {
             const loginScreen = document.getElementById('loginScreen')
             loginScreen.style.display = "none"
             const x = document.getElementById("loginSound")
-            console.log(x)
+            x.volume = 0.2
             x.play()
         }
     })  
