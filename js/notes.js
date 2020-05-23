@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     // we need to store the desktop Id so i can access the notes correspongind to that desktop
     // const desktopId
-    const noteList = document.getElementById('savedNotes')
+    const noteList = document.getElementById('savedNotes').firstElementChild
     const noteInfo = document.getElementById('newNote')
     const noteTitle = noteInfo.getElementsByClassName('noteTitle')[0]
 
@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
         myNotes.forEach(element => {
             renderNoteTitle(element)
         });
+        debugger
     })
 
     noteList.addEventListener('click', (e) =>{
@@ -42,4 +43,5 @@ document.addEventListener('DOMContentLoaded', () => {
             })
         }
     })
+
 })
