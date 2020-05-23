@@ -14,6 +14,23 @@
     display: none;
 }
 
+#newNoteBtn{
+    position: absolute;
+    margin: 0 auto;
+    width: 190px;
+    height: 25px;
+    top: 25px;
+    left: 5px;
+    background-color: rgba(221, 221, 221, 0.604);
+    border: none;
+}
+#newNoteBtn:hover{
+    background-color: rgb(221, 221, 221);
+}
+#newNoteBtn:active{
+    background-color: rgb(255, 255, 255);
+}
+
 .noteDividerLine{
     height: 600px;
     border-left: 2px solid #000;
