@@ -50,6 +50,20 @@ body{
 }
 
 
+
+#closeX{
+    background-color: #fff;
+    border: none;
+}
+#closeX:hover{
+    background-color: rgb(206, 206, 206);
+    border: none;
+}
+#closeX:active{
+    background-color: rgb(157, 157, 157);
+    border: none;
+}
+
 /*LOGIN STYLES*/
 
 .loginIcon{

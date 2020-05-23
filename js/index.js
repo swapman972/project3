@@ -8,7 +8,6 @@ const login = () => {
             if (e.target.id == 'loginForm'){
             e.target.username.value = ""
             const loginScreen = document.getElementById('loginScreen')
-            loginScreen.style.zIndex = 1
             loginScreen.style.display = "none"
                 
         }
@@ -16,6 +15,7 @@ const login = () => {
 }
 
 document.addEventListener('click', e => {
+    const notesWindow = document.getElementById('notesWindow')
     if (e.target.id == "systemApple" && e.target.dataset.id == "hide"){
         e.target.dataset.id = "show"
         const appleIcon = document.getElementById("logOut").style.display = "block"
@@ -34,6 +34,10 @@ document.addEventListener('click', e => {
     }else if (e.target.dataset.id == "open"){
       e.target.dataset.id = "closed"
       document.getElementById("mySidebar").style.transform = "translateX(0)"
+    }else if (e.target.id == "closeX"){
+        notesWindow.style.display = "none"
+    }else if(e.target.id == "appNotes"){
+        notesWindow.style.display = "block"
     }
 })
 

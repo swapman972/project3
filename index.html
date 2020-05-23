@@ -6,18 +6,18 @@
         <meta name="description" content="Interactive Desktop">
         <meta name="author" content="JS Interactive">
         <!--STYLES-->
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/notes.css">
     </head>
     <body>
         <div id="container">
 
-            <div id="loginScreen" class="">
+            <!-- <div id="loginScreen" class="">
                 <form id="loginForm">
                     <p class="font-white loginIcon"></p>
                     <input type="text" name="username" placeholder="Enter Username">
                 </form>
-            </div>
+            </div> -->
 
             
             <nav id="systemNav">
@@ -105,8 +105,12 @@
             <div id="notesWindow">
                 <table width="750" cellpadding="0" cellspacing="0" border="0">
                     <tr>
-                        <td width="200">
+                        <td width="200" valign="top">
                             <table id="savedNotes" width="100%" cellpadding="0" cellspacing="0" border="0">
+                                <tr>
+                                    <td valign="top"><button id="closeX">X</button></td>
+                                    <td></td>
+                                </tr>
                             <!-- USE THE FOLLOWING #savedNotes.innerHTML CODE FOR YOUR CREATE FUNCTION: 
                                 <tr>
                                     <td>${noteTitle}</td>
@@ -131,9 +135,9 @@
             <div id="dock-container">
                  <div id="dock">
                    <ul>
-                      <li>
+                      <li >
                         <span>APP 1</span>
-                        <a href="#"><img src="https://getdrawings.com/free-icon-bw/instagram-small-icon-9.png"/></a>
+                        <a href="#notes"><img id="appNotes" src="https://getdrawings.com/free-icon-bw/instagram-small-icon-9.png"/></a>
                       </li>
                       <li>
                         <span>APP 2</span>
@@ -156,5 +160,6 @@
                 </div>
         </div>
     <script defer src="js/index.js"></script>
+    <script defer src="js/notes.js"></script>
     </body>
 </html>
