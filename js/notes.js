@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         myNotes.forEach(element => {
             renderNoteTitle(element)
         });
-        debugger
     })
 
     noteList.addEventListener('click', (e) =>{
