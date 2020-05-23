@@ -7,17 +7,18 @@
         <meta name="author" content="JS Interactive">
         <!--STYLES-->
         <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="css/notes.css">
     </head>
     <body>
         <div id="container">
-<!--
+
             <div id="loginScreen" class="">
                 <form id="loginForm">
                     <p class="font-white loginIcon"></p>
-                    <input type="text" placeholder="Enter Username">
+                    <input type="text" name="username" placeholder="Enter Username">
                 </form>
             </div>
--->
+
             
             <nav id="systemNav">
                 <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
@@ -99,6 +100,32 @@
                 <img class="folderSize" src="https://freesvg.org/img/Folder-1.png">
                 <br>
                 <span class="folderName">FOLDER 2</span> 
+            </div>
+
+            <div id="notesWindow">
+                <table width="750" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="200">
+                            <table id="savedNotes" width="100%" cellpadding="0" cellspacing="0" border="0">
+                            <!-- USE THE FOLLOWING #savedNotes.innerHTML CODE FOR YOUR CREATE FUNCTION: 
+                                <tr>
+                                    <td>${noteTitle}</td>
+                                </tr> 
+                            -->
+                            </table>
+                        </td>
+                        <td class="noteDividerLine" width="550" height="100%" valign="top">
+                            <table id="newNote" width="100%" cellpadding="20" cellspacing="0" border="0">
+                                <tr>
+                                    <td class="font-black font40">NEW NOTE:</td>
+                                </tr>
+                                <tr>
+                                    <td class="noteTitle"></td>
+                                </tr> 
+                            </table>    
+                        </td>
+                    </tr>
+                </table>
             </div>
                                    
             <div id="dock-container">

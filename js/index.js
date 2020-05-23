@@ -6,7 +6,7 @@ const login = () => {
     const loginId = document.getElementById('loginForm')
     loginId.addEventListener('submit', e => {
             if (e.target.id == 'loginForm'){
-            e.target.value = ""
+            e.target.username.value = ""
             const loginScreen = document.getElementById('loginScreen')
             loginScreen.style.zIndex = 1
             loginScreen.style.display = "none"
