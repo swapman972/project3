@@ -92,36 +92,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 noteTitle.removeChild(noteTitle.firstElementChild)
             }
             noteTitle.appendChild(form)
-            nNote()
         } else {
             noteTitle.appendChild(form)
-            nNote()
         }
-
     })
     
-    function nNote() { form.addEventListener('submit', (e)=> {
-            e.preventDefault()
-            fetch('http://localhost:3000/notes', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json"
-                },
-                body: JSON.stringify({
-                    "title": form.title.value,
-                    "content": form.content.value,
-                    "desktop_id": 2 //should be desktop_id store form earlier
-                })
-            })
-            .then(resp => resp.json())
-            .then(newNote => {
-                renderNoteTitle(newNote)
-                form.title.value = ''
-                form.content.value = ''
+    
+    form.addEventListener('submit', (e)=> {
+        e.preventDefault()
+        fetch('http://localhost:3000/notes', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                "title": form.title.value,
+                "content": form.content.value,
+                "desktop_id": 2 //should be desktop_id store form earlier
             })
         })
-    }
-
+        .then(resp => resp.json())
+        .then(newNote => {
+            renderNoteTitle(newNote)
+            form.title.value = ''
+            form.content.value = ''
+        })
+    })
 
 })
