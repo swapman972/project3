@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="utf-8">
+        <title>Interactive Desktop</title>
+        <meta name="description" content="Interactive Desktop">
+        <meta name="author" content="JS Interactive">
+        <!--STYLES-->
+        <link rel="stylesheet" href="css/styles.css">
+    </head>
+    <body>
+        <div id="container">
+<!--
+            <div id="loginScreen" class="">
+                <form id="loginForm">
+                    <p class="font-white loginIcon"></p>
+                    <input type="text" placeholder="Enter Username">
+                </form>
+            </div>
+-->
+            
+            <nav id="systemNav">
+                <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="35px" align="left"><a id="systemApple" data-id="hide" class="font-white"></a></td>
+                        <td align="left"><a id="systemApplication" class="font-white">Welcome Stephen!</a></td>
+                        <td width="75%" align="right"><a id="widget-btn" data-id="closed" class="font-white">☰</a></td>
+                    </tr>
+                </table>
+            </nav>
+            <div id="logOut">
+                    <button id="logOutBtn" value="Log Out">Log Out</button>
+            </div>
+            
+            <div id="mySidebar" class="sidebar">
+                <div id="date-time" class="font-white font40">Friday,<br>May 22nd</div>
+                <div></div>
+                <div id="calculatorWidget">
+                    <table cellpadding="0" cellspacing="0" border="0">
+                          <tr class="widgetHeader">
+                              <td colspan="4">
+                                <table>
+                                    <tr>
+                                         <td width="30">
+                                            <img id="calcIcon" height="30" src="https://cdn.iconscout.com/icon/premium/png-512-thumb/calculator-69-109430.png"/>
+                                         </td>
+                                         <td class="font-black font25" >
+                                            CALCULATOR
+                                         </td>
+                                    </tr>
+                                </table>
+                              </td>
+                          </tr>
+                          <form name="calculator">
+                          <tr>
+                             <td colspan="4">
+                                <input type="text" name="display" id="display" disabled>
+                             </td>
+                          </tr>
+                          <tr>
+                                <td><input class="calInput" type="button" name="calOne" value="1" onclick="calculator.display.value += '1'"></td>
+                                <td><input class="calInput" type="button" name="calTwo" value="2" onclick="calculator.display.value += '2'"></td>
+                                <td><input class="calInput" type="button" name="calThree" value="3" onclick="calculator.display.value += '3'"></td>
+                                <td><input class="calInput" type="button" class="operator" name="plus" value="+" onclick="calculator.display.value += '+'"></td>
+                         </tr>
+                         <tr>
+                                <td><input class="calInput" type="button" name="calFour" value="4" onclick="calculator.display.value += '4'"></td>
+                                <td><input class="calInput" type="button" name="calFive" value="5" onclick="calculator.display.value += '5'"></td>
+                                <td><input class="calInput" type="button" name="calSix" value="6" onclick="calculator.display.value += '6'"></td>
+                                <td><input class="calInput" type="button" class="operator" name="minus" value="-" onclick="calculator.display.value += '-'"></td>
+                         </tr>
+                         <tr>
+                                <td><input class="calInput" type="button" name="calSeven" value="7" onclick="calculator.display.value += '7'"></td>
+                                <td><input class="calInput" type="button" name="calEight" value="8" onclick="calculator.display.value += '8'"></td>
+                                <td><input class="calInput" type="button" name="calNine" value="9" onclick="calculator.display.value += '9'"></td>
+                                <td><input class="calInput" type="button" class="operator" name="times" value="x" onclick="calculator.display.value += '*'"></td>
+                         </tr>
+                         <tr>
+                                <td><input class="calInput" type="button" id="clear" name="clear" value="c" onclick="calculator.display.value = ''"></td>
+                                <td><input class="calInput" type="button" name="calZero" value="0" onclick="calculator.display.value += '0'"></td>
+                                <td><input class="calInput" type="button" name="equal" value="=" onclick="calculator.display.value = eval(calculator.display.value)"></td>
+                                <td><input class="calInput" type="button" class="operator" name="div" value="/" onclick="calculator.display.value += '/'"></td>
+
+                          </tr>
+                        </form>
+                    </table>
+
+                </div>
+            </div>
+            
+            
+            <div id="folder1" class="appFolder" ondblclick="divOpen1()">
+                <img class="folderSize" src="https://freesvg.org/img/Folder-1.png">
+                <br>
+                <span class="folderName">FOLDER 1</span>
+            </div>
+            
+            <div id="folder2" class="appFolder" ondblclick="divOpen1()">
+                <img class="folderSize" src="https://freesvg.org/img/Folder-1.png">
+                <br>
+                <span class="folderName">FOLDER 2</span> 
+            </div>
+                                   
+            <div id="dock-container">
+                 <div id="dock">
+                   <ul>
+                      <li>
+                        <span>APP 1</span>
+                        <a href="#"><img src="https://getdrawings.com/free-icon-bw/instagram-small-icon-9.png"/></a>
+                      </li>
+                      <li>
+                        <span>APP 2</span>
+                        <a href="#"><img src="https://getdrawings.com/free-icon-bw/instagram-small-icon-9.png"/></a>
+                      </li>
+                      <li>
+                         <span>APP 3</span>
+                         <a href="#"><img src="https://getdrawings.com/free-icon-bw/instagram-small-icon-9.png"/></a>
+                      </li>
+                      <li>
+                         <span>APP 4</span>
+                         <a href="#"><img src="https://getdrawings.com/free-icon-bw/instagram-small-icon-9.png"/></a>
+                      </li>
+                      <li>
+                         <span>APP 5</span>
+                         <a href="#"><img src="https://getdrawings.com/free-icon-bw/instagram-small-icon-9.png"/></a>
+                      </li>
+                   </ul>
+                 </div>
+                </div>
+        </div>
+    <script defer src="js/index.js"></script>
+    </body>
+</html>
