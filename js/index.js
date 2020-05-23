@@ -12,6 +12,8 @@ const login = () => {
             const x = document.getElementById("loginSound")
             x.volume = 0.2
             x.play()
+            const sysAppName = getElementById('systemApplication')
+            sysAppName.textContent = `Welcome ${e.target.username.value}!`
         }
     })  
 }
@@ -43,12 +45,14 @@ document.addEventListener('click', e => {
     }
 })
 
-const displayWidgets = () => {
-    
+const widgetDate = () => {
+    const today = new Date now(2018, 11, 24)
+    const dateDisplay = document.querySelector('#date-time')
+
 }
 
 
-const divOpen1 = () => {
+const systemAppName = () => {
     
     
 }
