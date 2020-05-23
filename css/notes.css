@@ -30,7 +30,11 @@
 #newNoteBtn:active{
     background-color: rgb(255, 255, 255);
 }
-
+#notesList{
+    position: absolute;
+    top: 40px;
+    left: -10px;
+}
 .noteDividerLine{
     height: 600px;
     border-left: 2px solid #000;
