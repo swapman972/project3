@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
         let n = document.createElement('li')
         n.innerHTML = `${aNote.content}
         <br>
-        <button id="editNoteBtn">Edit this note</button>
-        <button id="deleteNoteBtn">Delete this note</button>`
+        <button data-id=${aNote.id} id="editNoteBtn">Edit this note</button>
+        <button data-id=${aNote.id} id="deleteNoteBtn">Delete this note</button>`
         noteTitle.appendChild(n)
     }
 
@@ -39,8 +39,89 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(resp => resp.json())
             .then(note => {
                 renderNoteInfo(note)
+                const deleteNoteBtn = document.getElementById('deleteNoteBtn')
+                deleteNoteBtn.addEventListener('click', (e) => {
+                    fetch(`http://localhost:3000/notes/${e.target.dataset.id}`,{
+                     
+                    })
+                })
             })
         }
     })
+
+    const newNoteBtn = document.getElementById('newNoteBtn')
+    const form = document.createElement('form')
+    //You can have an entire table inside a form. You can have a form inside a table cell. 
+    //You cannot have part of a table inside a form.
+    form.className = "addNoteForm"
+    form.innerHTML =`
+    <table width="500" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td><h3>Create your Note!</h3></td>
+        </tr>
+        <tr><td>
+                <input 
+                type="text"
+                name="title"
+                value=""
+                placeholder="Enter a note title.."
+                class="input-text"/>
+        </td></tr>
+        <tr><td>
+                <input
+                type="text"
+                name="content"
+                value=""
+                placeholder="Enter your content..."
+                class="input-text"
+                />
+        </td></tr>
+        <tr><input
+            type="submit"
+            name="submit"
+            value="Create New Note"
+            class="submit"
+        /></tr>
+    </table>`
+
+    newNoteBtn.addEventListener('click', () =>{
+        if(noteTitle.firstElementChild && noteTitle.firstElementChild.tagName === "FORM"){
+            noteTitle.removeChild(noteTitle.firstElementChild)
+        } else if(noteTitle.firstElementChild) {
+            while (noteTitle.firstElementChild){
+                noteTitle.removeChild(noteTitle.firstElementChild)
+            }
+            noteTitle.appendChild(form)
+            nNote()
+        } else {
+            noteTitle.appendChild(form)
+            nNote()
+        }
+
+    })
+    
+    function nNote() { form.addEventListener('submit', (e)=> {
+            e.preventDefault()
+            fetch('http://localhost:3000/notes', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    "title": form.title.value,
+                    "content": form.content.value,
+                    "desktop_id": 2 //should be desktop_id store form earlier
+                })
+            })
+            .then(resp => resp.json())
+            .then(newNote => {
+                renderNoteTitle(newNote)
+                form.title.value = ''
+                form.content.value = ''
+            })
+        })
+    }
+
 
 })
