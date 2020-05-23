@@ -8,7 +8,6 @@ const login = () => {
             if (e.target.id == 'loginForm'){
             e.target.username.value = ""
             const loginScreen = document.getElementById('loginScreen')
-            loginScreen.style.zIndex = 1
             loginScreen.style.display = "none"
                 
         }
@@ -34,6 +33,8 @@ document.addEventListener('click', e => {
     }else if (e.target.dataset.id == "open"){
       e.target.dataset.id = "closed"
       document.getElementById("mySidebar").style.transform = "translateX(0)"
+    }else if (e.target.id == "closeX"){
+        let x = e.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.style.display = "none"
     }
 })
 

@@ -1,20 +1,20 @@
 #notesWindow{
-    position: absolute;
+    position: relative;
     width: 750px;
-    height: 700px;
+    height: 600px;
     background-color: #ffffffF2;
     border: 2px;
     border-style: solid;
     border-radius: 4px;
     border-color: #00000080;
     margin: 0 auto;
-    top:150px;
-    left: 150px;
-    z-index: 23;
+    top:100px;
+    left:-140px;
+    z-index: 20;
     display: block;
 }
 
 .noteDividerLine{
-    height: 700px;
+    height: 600px;
     border-left: 2px solid #000;
 }
