@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(resp => resp.json())
     .then(notes =>{
         const myNotes = notes.filter( note =>{
-            return note.desktop_id === 5
+            return note.desktop_id === 2 //steve Id here (desktopId)
         })
         myNotes.forEach(element => {
             renderNoteTitle(element)

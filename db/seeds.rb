@@ -19,3 +19,7 @@ matt = Desktop.create(owner: "VaporMax", age: 25, adult: true, bio: "Vapor Maste
 note1 = Note.create(title: "First entry", content: "This is a test but I'll miss Matt", desktop: jordan)
 note2 = Note.create(title: "Test", content: "test test test", desktop: steve)
 note3 = Note.create(title: "Bye GOATs", content: "I'll miss this cohort they were really the GOATs...", desktop: matt)
+note4 = Note.create(title: "Being a frontend Master", content: "It requires way much work that you can imagine", desktop: steve)
+note5 = Note.create(title: "Groceries", content: "I need nutella, fruits, vegetables and steak", desktop: steve)
+note6 = Note.create(title: "To do", content: "Sports Everyday!", desktop: steve)
+note7 = Note.create(title: "Log in codes", content: "You really think I was gonna give them to you? 🤣", desktop: steve)
