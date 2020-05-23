@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderNoteInfo(aNote) {
         noteTitle.innerHTML = `<h2>${aNote.title}</h2>`
         let n = document.createElement('li')
-        n.innerHTML = `${aNote.content}`
+        n.innerHTML = `${aNote.content}
+        <button>delete this note</button>`
         noteTitle.appendChild(n)
     }
 
