@@ -12,6 +12,8 @@ const login = () => {
             const x = document.getElementById("loginSound")
             x.volume = 0.2
             x.play()
+            const sysAppName = getElementById('systemApplication')
+            sysAppName.textContent = `Welcome ${e.target.username.value}!`
         }
     })  
 }
@@ -50,7 +52,7 @@ const widgetDate = () => {
 }
 
 
-const divOpen1 = () => {
+const systemAppName = () => {
     
     
 }
