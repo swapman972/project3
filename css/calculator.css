@@ -1,0 +1,80 @@
+#calculatorWidget{
+    position: absolute;
+    top: 320px;
+    left: 15px;
+    background-color: #FFFFFFBF;
+}
+#calcIcon{
+    padding-top:3px;
+}
+#display {
+    width: 248px;
+    height: 35px;
+    font-size: 26px;
+    color: #fff;
+    text-align: right;
+    background-color: #404040;
+    float: left;
+}
+#display:active {
+    background-color: #666666E6;
+}
+.calInput {
+    outline: 0;
+    position: relative;
+    border: 0;
+    color: #333333;
+    background-color: #ffffffBF;
+    border-radius: 3px;
+    width: 60px;
+    height: 40px;
+    float: left;
+    left: 2px;
+    font-size: 20px;
+    box-shadow: 0 4px rgba(0,0,0,0.2);
+    margin-top: 2px;
+    margin-bottom: 4px;
+}
+.calInput:hover {
+    background-color: #dbdbdb80;
+}
+.calInput:active {
+    display: block;
+    box-shadow: none;
+    background-color: #FFFFFF40;
+}
+.operator {
+    background-color: #00000050;
+    position: relative;
+}
+
+.operator:hover {
+    background-color: #00000050;
+    box-shadow: 0 4px #00000050;
+}
+
+.operator:active {
+    top: 1px;
+    display: block;
+    margin-bottom: 2px;
+    box-shadow: none;
+    background-color: #99999950;
+}
+
+#clear {
+    float: left;
+    position: relative;
+    display: block;
+    background-color: #ad3b2f;
+}
+
+#clear:hover {
+    display: block;
+    background-color: #ad3b2fBF;
+}
+
+#clear:active {
+    display: block;
+    background-color: #9c382dBF;
+    box-shadow: none;
+}
