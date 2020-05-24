@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const login = () => {
     const loginId = document.getElementById('loginForm')
     loginId.addEventListener('submit', e => {
+        let username = e.target.username.value
             if (e.target.id == 'loginForm'){
             e.target.username.value = ""
             const loginScreen = document.getElementById('loginScreen')
@@ -14,7 +15,6 @@ const login = () => {
             x.volume = 0.2
             x.play()
             const sysAppName = document.getElementById('systemApplication')
-            const username = 'Jordan'
             sysAppName.innerHTML = `Welcome, ${username}!`
         }
     })  
