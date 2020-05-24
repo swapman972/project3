@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const noteList = document.getElementById('notesList')
     const noteInfo = document.getElementById('newNote')
     const noteTitle = noteInfo.getElementsByClassName('noteTitle')[0]
-
+    
     function renderNoteTitle(aNote) {
         let n = document.createElement('li')
         n.id = aNote.id
         n.innerHTML = `${aNote.title}`
         noteList.appendChild(n)
     }
-
+    
     function renderNoteInfo(aNote) {
         noteTitle.innerHTML = `<h2>${aNote.title}</h2>`
         let n = document.createElement('li')
@@ -21,18 +21,22 @@ document.addEventListener('DOMContentLoaded', () => {
         <button data-id=${aNote.id} id="deleteNoteBtn">Delete this note</button>`
         noteTitle.appendChild(n)
     }
-
-    fetch('http://localhost:3000/notes')
-    .then(resp => resp.json())
-    .then(notes =>{
-        const myNotes = notes.filter( note =>{
-            return note.desktop_id === 2 //steve Id here (desktopId)
+    
+    function renderAllNotes() { 
+        fetch('http://localhost:3000/notes')
+        .then(resp => resp.json())
+        .then(notes =>{
+            const myNotes = notes.filter( note =>{
+                return note.desktop_id === 2 //steve Id here (desktopId)
+            })
+            myNotes.forEach(element => {
+                renderNoteTitle(element)
+            });
         })
-        myNotes.forEach(element => {
-            renderNoteTitle(element)
-        });
-    })
+    }
+    renderAllNotes()
 
+    
     noteList.addEventListener('click', (e) =>{
         if(e.target.tagName === "LI"){
             fetch(`http://localhost:3000/notes/${e.target.id}`)
@@ -54,16 +58,46 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     })
                 })
+                const editNoteBtn = document.getElementById('editNoteBtn')
+                editNoteBtn.addEventListener('click', (event) => {
+                    noteTitle.appendChild(form)
+                    form.title.value = note.title
+                    form.content.value = note.content
+                    // form.addEventListener('submit', (e)=> {
+                    //     e.preventDefault()
+                    //     fetch(`http://localhost:3000/notes/${event.target.dataset.id}`,{
+                    //         method: "PUT",
+                    //         headers: {
+                    //             'Content-Type': 'application/json',
+                    //         },
+                    //         body: JSON.stringify({
+                    //             "title": form.title.value,
+                    //             "content": form.content.value
+                    //         })
+                    //     })
+                    //     .then(resp => resp.json())
+                    //     .then(newNote => {
+                    //         // what do i need to do.....
+                    //         note.title = newNote.title
+                    //         note.content = newNote.content
+                    //         form.title.value = ''
+                    //         form.content.value = ''
+                    //         noteList.innerHTML = ""
+                    //         renderAllNotes()
+                    //         renderNoteInfo(note)
+                    //     }) 
+                    // })
+                })
             })
         }
     })
 
     const newNoteBtn = document.getElementById('newNoteBtn')
-    const form = document.createElement('form')
+    const newForm = document.createElement('form')
     //You can have an entire table inside a form. You can have a form inside a table cell. 
     //You cannot have part of a table inside a form.
-    form.className = "addNoteForm"
-    form.innerHTML =`
+    newForm.className = "addNoteForm"
+    newForm.innerHTML =`
     <table width="500" cellpadding="0" cellspacing="0" border="0">
         <tr>
             <td width="100%"><h3>Create your Note!</h3></td>
@@ -98,7 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </td>
         </tr>
     </table>`
-
+    
     newNoteBtn.addEventListener('click', () =>{
         if(noteTitle.firstElementChild && noteTitle.firstElementChild.tagName === "FORM"){
             noteTitle.removeChild(noteTitle.firstElementChild)
@@ -106,33 +140,36 @@ document.addEventListener('DOMContentLoaded', () => {
             while (noteTitle.firstElementChild){
                 noteTitle.removeChild(noteTitle.firstElementChild)
             }
-            noteTitle.appendChild(form)
+            noteTitle.appendChild(newForm)
+            submitForm()
         } else {
-            noteTitle.appendChild(form)
+            noteTitle.appendChild(newForm)
+            submitForm()
         }
     })
-    
-    
-    form.addEventListener('submit', (e)=> {
-        e.preventDefault()
-        fetch('http://localhost:3000/notes', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json"
-            },
-            body: JSON.stringify({
-                "title": form.title.value,
-                "content": form.content.value,
-                "desktop_id": 2 //should be desktop_id store form earlier
+        
+    function submitForm() {
+        newForm.addEventListener('submit', (e)=> {
+            e.preventDefault()
+            fetch('http://localhost:3000/notes', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: JSON.stringify({
+                    "title": newForm.title.value,
+                    "content": newForm.content.value,
+                    "desktop_id": 2 //should be desktop_id store form earlier
+                })
+            })
+            .then(resp => resp.json())
+            .then(newN => {
+                renderNoteTitle(newN)
+                renderNoteInfo(newN)
+                newForm.title.value = ''
+                newForm.content.value = ''
             })
         })
-        .then(resp => resp.json())
-        .then(newNote => {
-            renderNoteTitle(newNote)
-            form.title.value = ''
-            form.content.value = ''
-        })
-    })
-
+    }
 })
