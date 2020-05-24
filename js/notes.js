@@ -42,16 +42,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const deleteNoteBtn = document.getElementById('deleteNoteBtn')
                 deleteNoteBtn.addEventListener('click', (e) => {
                     fetch(`http://localhost:3000/notes/${e.target.dataset.id}`,{
-                        method: "DELETE",
-                        headers: {
-                            'Content-Type': 'application/json',
-                            Accept: "application/json"
-                        }
-                    }).then(resp => resp.json())
-                    .then(note => {
+                        method: "DELETE"
+                    })
+                    .then(resp => resp.json())
+                    .then(json => {
                         for(let i=0; i < noteList.children.length; i++){
-                            if(noteList.children[i].id === note.id){
+                            if(parseInt(noteList.children[i].id) === json.id){
                                 noteList.removeChild(noteList.children[i])
+                                noteTitle.innerHTML =""
                             }
                         }
                     })
