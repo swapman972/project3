@@ -40,11 +40,27 @@
     bottom: 140px;
     left: 0;
     width: 100%;
-    background-color: rgba(0,0,0,0.75);
+    background-color: rgba(228, 228, 228, 0.75);
     padding: 4px 0;
     border-radius: 12px;
 }
 #dock-container li:hover span {
     display: block;
-    color: #fff;
+    color: rgb(0, 0, 0);
 }
+.appTag{
+    border: solid 1px black;
+    
+}
+ /* #appIcon{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    animation: iconAnimate 1s infinite;
+}
+@keyframes iconAnimate {
+    0%   {background-color: red;}
+    50% {background-color: green;}
+    100%  {background-color: red;}
+} */

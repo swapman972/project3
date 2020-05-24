@@ -13,11 +13,12 @@ body{
     min-width: 1000px;
     width: auto !important; 
     width:900px;
-    background-image: url('https://steelcase-res.cloudinary.com/image/upload/v1572993849/www.steelcase.com/2019/11/05/19-0122073-Art-Addiction-Flat-Iron.jpg');
+    background-image: url('../app/assets/images/animated_nyc.gif');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;   
+    background-size: 70%;
+    back   
     overflow: hidden;
 }
 #container{
@@ -150,8 +151,8 @@ animation-name: fadeOut;
     display: inline-block;
 }
 #widget-btn{
-    min-width: 35px;
-    max-width: 35px;
+    min-width: 20px;
+    max-width: 20px;
     display: inline-block;
 }
 
@@ -261,19 +262,3 @@ animation-name: fadeOut;
 }
 
 
-
-
-
-/*APP NAVIGATION ICONS*/
-#appIcon{
-    width: 100px;
-    height: 100px;
-    background: red;
-    position: relative;
-    animation: iconAnimate 1s infinite;
-}
-@keyframes iconAnimate {
-    0%   {background-color: red;}
-    50% {background-color: green;}
-    100%  {background-color: red;}
-}
