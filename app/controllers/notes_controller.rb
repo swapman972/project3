@@ -23,7 +23,7 @@ class NotesController < ApplicationController
     end
 
     def update
-        @note = Note.find(params[:id])
+        @note = Note.find_by(id: params[:id])
         @note.update(note_params)
         render json: @note, except: [:created_at, :updated_at]
     end
