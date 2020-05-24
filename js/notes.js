@@ -57,31 +57,37 @@ document.addEventListener('DOMContentLoaded', () => {
     form.innerHTML =`
     <table width="500" cellpadding="0" cellspacing="0" border="0">
         <tr>
-            <td><h3>Create your Note!</h3></td>
+            <td width="100%"><h3>Create your Note!</h3></td>
         </tr>
-        <tr><td>
-                <input 
-                type="text"
-                name="title"
-                value=""
-                placeholder="Enter a note title.."
-                class="input-text"/>
-        </td></tr>
-        <tr><td>
-                <input
-                type="text"
-                name="content"
-                value=""
-                placeholder="Enter your content..."
-                class="input-text"
-                />
-        </td></tr>
-        <tr><input
-            type="submit"
-            name="submit"
-            value="Create New Note"
-            class="submit"
-        /></tr>
+        <tr>
+            <td width="100%" valign="top">
+                    <input class="addNoteTitle" 
+                    type="text"
+                    name="title"
+                    value=""
+                    placeholder="Enter a note title.."/>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" valign="top">
+                <textarea
+                    class="addNoteContent"
+                    type="text"
+                    name="content"
+                    value=""
+                    placeholder="Enter your content..."></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td width="100">
+                <input class="addNoteSubmit"
+                type="submit"
+                name="submit"
+                value="Create New Note"
+                class="addNoteSubmit"
+                 />
+            </td>
+        </tr>
     </table>`
 
     newNoteBtn.addEventListener('click', () =>{
