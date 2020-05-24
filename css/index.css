@@ -61,6 +61,10 @@ body{
     padding-left: 20px;
 }
 
+
+
+
+
 /*LOGIN STYLES*/
 
 .loginIcon{
@@ -107,6 +111,52 @@ animation-name: fadeOut;
 
 
 
+
+/*SYSTEM NAV*/
+
+#systemNav{
+    position: fixed;
+    margin: 0 auto;
+    top:0;
+    width: 100%;
+    text-align: right;
+    background-color: #000000;
+    z-index: 24;
+}
+#systemApple{
+    float: left;
+    min-width: 35px;
+    max-width: 35px;
+    color: white;
+    padding-left: 10px;
+    display:inline-block;
+}
+#systemApplication{
+    position: fixed;
+    margin: 0 auto;
+    top: 10px;
+    left: 60px;
+    float: left;
+    display: inline-block;
+}
+#date-time{
+    position: fixed;
+    top: 0;
+    left: 600px;
+    margin-top: -49px;
+    margin-left:60px;
+    text-align: right;
+    float: right;
+    display: inline-block;
+}
+#widget-btn{
+    min-width: 35px;
+    max-width: 35px;
+    display: inline-block;
+}
+
+
+
 /*LOGOUT*/
 #logOut {
     position: relative;
@@ -120,27 +170,6 @@ animation-name: fadeOut;
 }
 
 
-/*SYSTEM NAV*/
-
-#systemNav{
-    position: absolute;
-    margin: 0 auto;
-    width: 100%;
-    text-align: right;
-    background-color: #000000;
-    z-index: 24;
-}
-#systemApple{
-    color: white;
-    padding-left: 10px;
-}
-#date-time{
-    position: relative;
-    top: 0;
-    margin-top: -49px;
-    margin-left:60px;
-}
-
 
 
 /*WIDGET MENU STYLES*/
@@ -149,7 +178,7 @@ animation-name: fadeOut;
     position: absolute;
     width: 285px;
     height: 100vh;
-    top:0;
+    top:0px;
     left:100%;
     background-color: #000000BF;
     box-shadow: 0 0 0 1px #ffffff80;
@@ -158,7 +187,7 @@ animation-name: fadeOut;
     height: 100%;
     width: 0;
     position: fixed;
-    top: 0;
+    top: 60px;
     right: 0;
     overflow-x: hidden;
     transition: 0.5s;
@@ -181,6 +210,7 @@ animation-name: fadeOut;
 #main {
     transition: margin-left .5s;
     padding: 16px;
+    top: 200px;
 }
 
 
@@ -195,10 +225,11 @@ animation-name: fadeOut;
     left: 15px;
     width: 90%;
 }
-
-
-
-
+#date-month{
+    position: absolute;
+    top: 80px;
+    left: 15px;
+}
 
 
 
@@ -227,4 +258,22 @@ animation-name: fadeOut;
 .folderName{
     position: fixed;
     margin:-10px 0 0 8px;
+}
+
+
+
+
+
+/*APP NAVIGATION ICONS*/
+#appIcon{
+    width: 100px;
+    height: 100px;
+    background: red;
+    position: relative;
+    animation: iconAnimate 1s infinite;
+}
+@keyframes iconAnimate {
+    0%   {background-color: red;}
+    50% {background-color: green;}
+    100%  {background-color: red;}
 }
