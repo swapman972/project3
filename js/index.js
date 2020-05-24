@@ -13,8 +13,9 @@ const login = () => {
             const x = document.getElementById("loginSound")
             x.volume = 0.2
             x.play()
-            const sysAppName = getElementById('systemApplication')
-            sysAppName.textContent = `Welcome ${e.target.username.value}!`
+            const sysAppName = document.getElementById('systemApplication')
+            const username = 'Jordan'
+            sysAppName.innerHTML = `Welcome, ${username}!`
         }
     })  
 }
