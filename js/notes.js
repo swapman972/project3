@@ -36,6 +36,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     renderAllNotes()
 
+    const editForm = document.createElement('form')
+    //You can have an entire table inside a form. You can have a form inside a table cell. 
+    //You cannot have part of a table inside a form.
+    editForm.className = "editNoteForm"
+    editForm.innerHTML =`
+    <table width="500" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td width="100%"><h3>Edit your Note!</h3></td>
+        </tr>
+        <tr>
+            <td width="100%" valign="top">
+                    <input class="addNoteTitle" 
+                    type="text"
+                    name="title"
+                    value=""
+                    placeholder="Edit your note title.."/>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" valign="top">
+                <textarea
+                    class="addNoteContent"
+                    type="text"
+                    name="content"
+                    value=""
+                    placeholder="Edit your content..."></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td width="100">
+                <input class="addNoteSubmit"
+                type="submit"
+                name="submit"
+                value="Edit Your Note"
+                class="editNoteSubmit"
+                 />
+            </td>
+        </tr>
+    </table>`
+
+
     
     noteList.addEventListener('click', (e) =>{
         if(e.target.tagName === "LI"){
@@ -60,33 +101,36 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 const editNoteBtn = document.getElementById('editNoteBtn')
                 editNoteBtn.addEventListener('click', (event) => {
-                    noteTitle.appendChild(form)
-                    form.title.value = note.title
-                    form.content.value = note.content
-                    // form.addEventListener('submit', (e)=> {
-                    //     e.preventDefault()
-                    //     fetch(`http://localhost:3000/notes/${event.target.dataset.id}`,{
-                    //         method: "PUT",
-                    //         headers: {
-                    //             'Content-Type': 'application/json',
-                    //         },
-                    //         body: JSON.stringify({
-                    //             "title": form.title.value,
-                    //             "content": form.content.value
-                    //         })
-                    //     })
-                    //     .then(resp => resp.json())
-                    //     .then(newNote => {
-                    //         // what do i need to do.....
-                    //         note.title = newNote.title
-                    //         note.content = newNote.content
-                    //         form.title.value = ''
-                    //         form.content.value = ''
-                    //         noteList.innerHTML = ""
-                    //         renderAllNotes()
-                    //         renderNoteInfo(note)
-                    //     }) 
-                    // })
+                    noteTitle.appendChild(editForm)
+                    editForm.dataset.id = note.id
+                    editForm.title.value = note.title
+                    editForm.content.value = note.content
+                    debugger
+                    editForm.addEventListener('submit', (e)=> { //problem (does it twice)
+                        debugger
+                        e.preventDefault()
+                        fetch(`http://localhost:3000/notes/${e.target.dataset.id}`,{
+                            method: "PUT",
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                "title": editForm.title.value,
+                                "content": editForm.content.value
+                            })
+                        })
+                        .then(resp => resp.json())
+                        .then(newNote => {
+                            // what do i need to do.....
+                            note.title = newNote.title
+                            note.content = newNote.content
+                            editForm.title.value = ''
+                            editForm.content.value = ''
+                            noteList.innerHTML = ""
+                            renderAllNotes()
+                            renderNoteInfo(note)
+                        }) 
+                    })
                 })
             })
         }
@@ -141,35 +185,31 @@ document.addEventListener('DOMContentLoaded', () => {
                 noteTitle.removeChild(noteTitle.firstElementChild)
             }
             noteTitle.appendChild(newForm)
-            submitForm()
         } else {
             noteTitle.appendChild(newForm)
-            submitForm()
         }
     })
         
-    function submitForm() {
-        newForm.addEventListener('submit', (e)=> {
-            e.preventDefault()
-            fetch('http://localhost:3000/notes', {
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                    Accept: "application/json"
-                },
-                body: JSON.stringify({
-                    "title": newForm.title.value,
-                    "content": newForm.content.value,
-                    "desktop_id": 2 //should be desktop_id store form earlier
-                })
-            })
-            .then(resp => resp.json())
-            .then(newN => {
-                renderNoteTitle(newN)
-                renderNoteInfo(newN)
-                newForm.title.value = ''
-                newForm.content.value = ''
+    newForm.addEventListener('submit', (e)=> {
+        e.preventDefault()
+        fetch('http://localhost:3000/notes', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json"
+            },
+            body: JSON.stringify({
+                "title": newForm.title.value,
+                "content": newForm.content.value,
+                "desktop_id": 2 //should be desktop_id store form earlier
             })
         })
-    }
+        .then(resp => resp.json())
+        .then(newN => {
+            renderNoteTitle(newN)
+            renderNoteInfo(newN)
+            newForm.title.value = ''
+            newForm.content.value = ''
+        })
+    })
 })
