@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     login()
+    dateTime()
 })
 
 const login = () => {
@@ -47,10 +48,49 @@ document.addEventListener('click', e => {
     }
 })
 
-// const widgetDate = () => {
-//     const today = new Date now(2018, 11, 24)
-//     const dateDisplay = document.querySelector('#date-time')
-// }
+const dateTime = () => {
+    const date = new Date()
+    const weekday = { 
+        timeZone: "America/New_York", 
+        hour12: true,
+        weekday: 'long',
+        // year: 'numeric',
+        // month: 'long',
+        // day: 'numeric',
+        // hour: 'numeric',
+        // minute: 'numeric'
+    }
+    const monthDay = { 
+        timeZone: "America/New_York", 
+        hour12: true,
+        // weekday: 'long',
+        // year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        // hour: 'numeric',
+        // minute: 'numeric'
+    }
+
+    const time = { 
+        timeZone: "America/New_York", 
+        hour12: true,
+        weekday: 'short',
+        // // year: 'numeric',
+        // month: 'long',
+        // day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric'
+	}
+
+    const timeDisplay = document.querySelector('#date-time').innerHTML = 
+    `${date.toLocaleString('en-US', time)}`
+
+    const dateDisplay = document.querySelector('#date-month').innerHTML = 
+    `
+    ${date.toLocaleString('en-US', weekday)}, <br>
+    ${date.toLocaleString('en-US', monthDay)}
+    `
+}
 
 
 const systemAppName = () => {

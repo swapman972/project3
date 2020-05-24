@@ -134,7 +134,12 @@ animation-name: fadeOut;
     color: white;
     padding-left: 10px;
 }
-
+#date-time{
+    position: relative;
+    top: 0;
+    margin-top: -49px;
+    margin-left:60px;
+}
 
 
 
