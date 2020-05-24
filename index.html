@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/calculator.css">
         <link rel="stylesheet" href="css/notes.css">
+        <link rel="stylesheet" href="css/music.css">
         <link rel="stylesheet" href="css/appNav.css">
 
         <!--AUDIO-->
@@ -19,20 +20,20 @@
     <body>
         <div id="container">
 
-            <!-- <div id="loginScreen" class="">
+            <div id="loginScreen" class="">
                 <form id="loginForm">
                     <p class="font-white loginIcon"></p>
                     <input type="text" name="username" placeholder="Enter Username">
                 </form>
-            </div> -->
+            </div>
 
             
             <nav id="systemNav">
                 <table width="100%" align="center" cellpadding="0" cellspacing="0" border="0">
                     <tr>
-                        <td width="35px" align="left"><a id="systemApple" data-id="hide" class="font-white"></a></td>
+                        <td width="35px" align="left"><a href="#logOut" id="systemApple" data-id="hide" class="font-white font-noStyle"></a></td>
                         <td align="left"><a id="systemApplication" class="font-white"></a></td>
-                        <td width="75%" align="right"><a id="widget-btn" data-id="closed" class="font-white">☰</a></td>
+                        <td width="75%" align="right"><a href="#widgets" id="widget-btn" data-id="closed" class="font-white font-noStyle">☰</a></td>
                     </tr>
                 </table>
             </nav>
@@ -97,10 +98,10 @@
             </div>
             
             
-            <div id="folder1" class="appFolder" ondblclick="divOpen1()">
-                <a href="#"><img id="" class="folderSize" src="https://freesvg.org/img/Folder-1.png"></a>
+            <div id="folder1" class="appFolder">
+                <a href="#"><img id="musicFolder" class="folderSize" src="https://freesvg.org/img/Folder-1.png"></a>
                 <br>
-                <span class="folderName">FOLDER 1</span>
+                <span class="folderName">My Music</span>
             </div>
             
             <div id="folder2" class="appFolder" ondblclick="divOpen1()">
@@ -115,7 +116,7 @@
                         <td width="200" valign="top">
                             <table id="savedNotes" width="100%" cellpadding="0" cellspacing="0" border="0">
                                 <tr>
-                                    <td valign="top"><button id="closeX">X</button></td>
+                                    <td valign="top"><button id="closeNotes">X</button></td>
                                 </tr>
                                 <tr>
                                     <td><a href="#new-note"><button id="newNoteBtn" class="font-black font20">Create New Note</button></a></td>
@@ -133,8 +134,8 @@
                             -->
                             </table>
                         </td>
-                        <td class="noteDividerLine" width="550" height="100%" valign="top">
-                            <table id="newNote" width="100%" cellpadding="20" cellspacing="0" border="0">
+                        <td class="noteDividerLine  padLeft20 padTop20" width="530" height="100%" valign="top">
+                            <table id="newNote" width="100%" cellpadding="0" cellspacing="0" border="0">
                                 <tr>
                                     <td class="font-black font30" style="line-height: 30px;">NOTE:</td>
                                 </tr>
@@ -147,8 +148,29 @@
                 </table>
             </div>
             
-            <div id="musicWindow">
-                
+            <div id="musicWindow" ondblclick="musicOpen()">
+                <table>
+                    <tr>
+                        <td width="20px" valign="top"><button id="closeMusic">X</button></td>
+                        <td class="font-black font30" style="padding-top: 20px;" align="left">My Music</td>
+                    </tr>
+                </table>
+                <table>
+                    <tr>
+                        <td>
+                            <ul id="musicList">
+                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Aaliyah - Are You That Somebody?.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Biggie (feat. Junior Mafia) - Get Money.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Biggie - Big Poppa.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Biggie - One More Chance.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Ginuwine - Same Ol G.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Jay-Z & Kanye West - OTIS.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Jay-Z & Kanye West - *** In Paris.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Jay-Z - You Don't Know.mp3</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
             <div id="dock-container">
@@ -180,5 +202,6 @@
         </div>
     <script defer src="js/index.js"></script>
     <script defer src="js/notes.js"></script>
+    <script defer src="js/music.js"></script>
     </body>
 </html>

@@ -28,7 +28,10 @@ body{
     background:#f3f3f320;
     bottom:0px;
 }
-
+.font-noStyle{
+    color: #000000;
+    text-decoration: none;
+}
 .font-white{
     color: white;
 }
@@ -48,20 +51,14 @@ body{
     font-size: 40px;
     line-height: 42px;
 }
-
-
-
-#closeX{
-    background-color: #fff;
-    border: none;
+.pad5{
+    padding-bottom: 5px;
 }
-#closeX:hover{
-    background-color: rgb(206, 206, 206);
-    border: none;
+.padTop20{
+    padding-top: 20px;
 }
-#closeX:active{
-    background-color: rgb(157, 157, 157);
-    border: none;
+.padLeft20{
+    padding-left: 20px;
 }
 
 /*LOGIN STYLES*/
@@ -224,5 +221,5 @@ animation-name: fadeOut;
 }
 .folderName{
     position: fixed;
-    margin:-10px 0 0 5px;
+    margin:-10px 0 0 8px;
 }

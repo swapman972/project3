@@ -38,10 +38,12 @@ document.addEventListener('click', e => {
     }else if (e.target.dataset.id == "open"){
       e.target.dataset.id = "closed"
       document.getElementById("mySidebar").style.transform = "translateX(0)"
-    }else if (e.target.id == "closeX"){
+    }else if (e.target.id == "closeNotes"){
         notesWindow.style.display = "none"
     }else if(e.target.id == "appNotes"){
         notesWindow.style.display = "block"
+    }else if (e.target.id == "closeMusic"){
+        musicWindow.style.display = "none"
     }
 })
 

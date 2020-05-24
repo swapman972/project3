@@ -7,18 +7,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function renderNoteTitle(aNote) {
         let n = document.createElement('li')
+        n.setAttribute('class', ' pad5')
         n.id = aNote.id
-        n.innerHTML = `${aNote.title}`
+        n.innerHTML = `<a class="font-noStyle" href="#${aNote.title}"> ${aNote.title}</a>`
         noteList.appendChild(n)
     }
 
     function renderNoteInfo(aNote) {
         noteTitle.innerHTML = `<h2>${aNote.title}</h2>`
-        let n = document.createElement('li')
+        let n = document.createElement('p')
         n.innerHTML = `${aNote.content}
         <br>
+        <br>
         <button data-id=${aNote.id} id="editNoteBtn">Edit this note</button>
-        <button data-id=${aNote.id} id="deleteNoteBtn">Delete this note</button>`
+        <button data-id=${aNote.id} id="deleteNoteBtn">Delete this note</button>
+        `
         noteTitle.appendChild(n)
     }
 

@@ -13,6 +13,10 @@
     z-index: 20;
     display: none;
 }
+#notesList{
+    width: 165px;
+    word-wrap: break-word;
+}
 .noteTitle{
     position: absolute;
     width: 480px;
@@ -55,7 +59,24 @@
     top: 40px;
     left: -10px;
 }
+#notesList>li:hover{
+    color: rgb(187, 187, 187);
+    background-color: rgba(182, 182, 182, 0.296);
+}
 .noteDividerLine{
-    height: 600px;
-    border-left: 2px solid #000;
+    height: 580px;
+    border-left: 2px solid rgb(186, 186, 186);
+}
+
+#closeNotes{
+    background-color: #fff;
+    border: none;
+}
+#closeNotes:hover{
+    background-color: rgb(206, 206, 206);
+    border: none;
+}
+#closeNotes:active{
+    background-color: rgb(157, 157, 157);
+    border: none;
 }
