@@ -1,0 +1,15 @@
+#pokedexWindow{
+    position: absolute;
+    width: 1000px;
+    height: 720px;
+    background-color: #ffffffF2;
+    border: 2px;
+    border-style: solid;
+    border-radius: 4px;
+    border-color: #00000080;
+    margin: 0 auto;
+    top:80px;
+    left:250px;
+    z-index: 19;
+    display: block;
+}

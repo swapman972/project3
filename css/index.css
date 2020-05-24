@@ -13,7 +13,8 @@ body{
     min-width: 1000px;
     width: auto !important; 
     width:900px;
-    background-image: url('../app/assets/images/animated_nyc.gif');
+    background-color: rgb(175, 113, 58);
+    background-image: url('../app/assets/images/heroQuest.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -25,7 +26,6 @@ body{
     width:100%;
     min-width: 900px;
     height:100%;
-    background:#f3f3f320;
     bottom:0px;
 }
 .font-noStyle{
@@ -120,7 +120,7 @@ animation-name: fadeOut;
     top:0;
     width: 100%;
     text-align: right;
-    background-color: #000000;
+    background-color: #000000db;
     z-index: 24;
 }
 #systemApple{
