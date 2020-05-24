@@ -1,7 +1,8 @@
 #calculatorWidget{
     position: absolute;
-    top: 320px;
+    top: 700px;
     left: 15px;
+    margin-bottom: 50px;
     background-color: #FFFFFFBF;
 }
 #calcIcon{
