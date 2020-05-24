@@ -31,6 +31,7 @@ class NotesController < ApplicationController
     def destroy
         @note = Note.find(params[:id])
         @note.destroy
+        render json: @note, except: [:created_at, :updated_at]
     end
 
        private
