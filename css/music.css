@@ -59,7 +59,6 @@ ul#musicList>li:hover{
     height: 5px;
     background-color: rgb(191, 191, 191);
     display: flex;
-    cursor: pointer;
 }
 #fill{
     height: 5px;
