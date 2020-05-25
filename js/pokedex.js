@@ -1,5 +1,4 @@
-// load all the pokedex at dom content loaded on the window for it
-// when you click on one you can see whats up
+// add a shiney version
 
 document.addEventListener('DOMContentLoaded', () => {
     const pokedexPage = document.getElementById('pokedex')
@@ -8,12 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const promises = [];
         for (let i = 1; i <= 151; i++){
             const url = `https://pokeapi.co/api/v2/pokemon/${i}`
-            promises.push(fetch(url).then((res) => res.json()))
+            promises.push(fetch(url).then((res) => res.json()/*.then(poke => {debugger})*/))
         }
         Promise.all(promises).then((results) => {
             const pokemon = results.map((result) => ({
                 name: result.name,
-                image: result.sprites['front_default'],
+                image: result.sprites['front_shiny'],
                 type: result.types.map((type) => type.type.name).join(', '),
                 id: result.id
             }))
