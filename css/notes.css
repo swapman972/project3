@@ -2,6 +2,7 @@
     position: relative;
     width: 750px;
     height: 600px;
+    box-shadow: 3px 3px #00000048;
     background-color: #ffffffF2;
     border: 2px;
     border-style: solid;

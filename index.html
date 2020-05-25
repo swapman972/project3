@@ -174,7 +174,7 @@
                 </table>
             </div>
             
-            <div id="musicWindow" ondblclick="musicOpen()">
+            <div id="musicWindow">
                 <table>
                     <tr>
                         <td width="20px" valign="top"><button id="closeMusic">X</button></td>
@@ -185,16 +185,41 @@
                     <tr>
                         <td>
                             <ul id="musicList">
-                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Aaliyah - Are You That Somebody?.mp3</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Biggie (feat. Junior Mafia) - Get Money.mp3</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Biggie - Big Poppa.mp3</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Biggie - One More Chance.mp3</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Ginuwine - Same Ol G.mp3</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Jay-Z & Kanye West - OTIS.mp3</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Jay-Z & Kanye West - *** In Paris.mp3</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" href="#">Jay-Z - You Don't Know.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="0" href="#">☆ＳＥＩＮＷＡＶＥ☆２０００☆.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="1" href="#">Blank Banshee - Teen Pregnancy.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="2" href="#">ESPRIT 空想 - Play That Thing Again.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="3" href="#">George Clanton - Never Late Again.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="4" href="#">Jay-Z & Kanye West - O.T.I.S.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="5" href="#">Notorious BIG - Big Poppa.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="6" href="#">Notorious BIG - Juicy.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="7" href="#">Notorious BIG - One More Chance.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="8" href="#">Partly 曇った.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="9" href="#">The Weeknd - House of Balloons.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="10" href="#">The Weeknd - Montreal.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="11" href="#">The Weeknd - The Birds Pt 1.mp3</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="12" href="#">The Weeknd - Wicked Games.mp3</a></li>
                             </ul>
                         </td>
+                    </tr>
+                </table>
+                <table width="100%" border="1">
+                    <tr height="30">
+                        <td id="songDisplay" colspan="3"></td>
+                    </tr>
+                </table>
+                <table width="100%" border="1">
+                    <tr>
+                        <td id="seekBar">
+                            <div id="fill"></div>
+                            <!-- <div id="handle"></div> -->
+                        </td>
+                    </tr>
+                </table>
+                <table width="100%" border="1">
+                    <tr height="50">
+                        <td width="33%" align="center" ><button id="previousSong" class="musicPlayerBtns font-white font25">⪻</button></td>
+                        <td width="34%" align="center" ><button id="play-pause" class="musicPlayerBtns font-white font25" onclick="playPause()">▶</button></td>
+                        <td width="33%" align="center" ><button id="nextSong" class="musicPlayerBtns font-white font25">⪼</button></td>
                     </tr>
                 </table>
             </div>

@@ -1,7 +1,8 @@
 #musicWindow{
     position: absolute;
     width: 350px;
-    height: 300px;
+    height: auto;
+    box-shadow: 3px 3px #00000048;
     background-color: #ffffffF2;
     border: 2px;
     border-style: solid;
@@ -32,3 +33,46 @@ ul#musicList>li:hover{
     background-color: rgb(157, 157, 157);
     border: none;
 }
+#songDisplay{
+    overflow: hidden;
+    padding-left: 5px;
+    background-color: rgba(160, 160, 160, 0.556);
+}
+.musicPlayerBtns{
+    width: 100%;
+    height: 50px;
+    border: solid 1px black;
+    background-color: rgba(160, 160, 160, 0.556);
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    transform: -50%, -50%;
+}
+.musicPlayerBtns:hover{
+    background-color: rgb(64, 64, 64, 0.556);
+}
+.musicPlayerBtns:active{
+    background-color: rgb(160, 160, 160, 0.556);
+}
+#seekBar{
+    width: 340px;
+    height: 5px;
+    background-color: rgb(191, 191, 191);
+    display: flex;
+    cursor: pointer;
+}
+#fill{
+    height: 5px;
+    width: 1px;
+    background-color: rgb(64, 64, 64, 0.556);
+    border-radius: 20%;
+}
+/* #handle{
+    width: 6px;
+    height: 6px;
+    background-color: rgb(255, 255, 255);
+    border:solid 1px black;
+    border-radius: 50%;
+    margin-left: -5px;
+    transform: scale(2);
+} */
