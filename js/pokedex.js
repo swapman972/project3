@@ -21,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     }
     const displayPokemon = (pokemon) => {
-        console.log(pokemon)
         const pokemonHMTLString = pokemon
         .map((poke) =>`
         <li class="card">
