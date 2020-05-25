@@ -24,8 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const pokemonHMTLString = pokemon
         .map((poke) =>`
         <li class="card">
+            <p class="card-number">${poke.id}</p>
             <img class="card-image" src="${poke.image}"/>
-            <h2 class="card-title">${poke.id}. ${poke.name}</h2>
+            <h2 class="card-title">${poke.name}</h2>
             <p class="card-subtitle">Type: ${poke.type}</p>
         </li>`
         )
