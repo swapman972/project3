@@ -7,7 +7,7 @@
     padding: 40px;
     height: 90%vh;
     max-height: 650px;
-    box-shadow: 3px 3px #ffffff48;
+    box-shadow: 3px 3px #00000070;
     background-color: rgba(0, 0, 0, 0.824);
     border: 2px;
     border-style: solid;
@@ -17,7 +17,7 @@
     top:80px;
     left:260px;
     z-index: 19;
-    display: block;
+    display: none;
 }
 
 #pokedexTitle{
@@ -73,13 +73,14 @@
     font-size: 18px;
     font-weight: bold;
     padding-top: 4px;
+    margin-top: 2px;
     text-align: center;
     background-color: white;
     border: solid 1px black;
     border-radius: 50%;
 }
 .card-image{
-    margin-top: -60px;
+    margin-top: -50px;
     height: 180px;
 }
 .card-title{

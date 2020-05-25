@@ -183,7 +183,7 @@ animation-name: fadeOut;
     top:0px;
     left:100%;
     background-color: #000000BF;
-    box-shadow: 0 0 0 1px #ffffff80;
+    box-shadow: 0 0 0 1px #0000005d;
 }
 .sidebar {
     height: 100%;

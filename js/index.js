@@ -46,6 +46,10 @@ document.addEventListener('click', e => {
         notesWindow.style.display = "block"
     }else if (e.target.id == "closeMusic"){
         musicWindow.style.display = "none"
+    }else if(e.target.id == "appPokedex"){
+        pokedexWindow.style.display = "block"
+    }else if(e.target.id == "closePokedex"){
+        pokedexWindow.style.display = "none"
     }
 })
 
