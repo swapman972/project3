@@ -61,10 +61,12 @@
     border: solid 2px rgba(255, 255, 255, 0.618);
     border-radius: 10%;
 }
-
-/* .card:hover {
+.card:hover{
+    /* border: solid 4px rgba(255, 255, 255, 0.618); */
+    background-color: rgba(245, 77, 26, 0.94);
     animation: bounce 0.5s linear;
-} */
+}
+
 .card-number{
     float: left;
     width: 30px;

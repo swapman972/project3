@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Promise.all(promises).then((results) => {
             const pokemon = results.map((result) => ({
                 name: result.name,
-                image: result.sprites['front_shiny'],
+                image: result.sprites['front_default'],
                 type: result.types.map((type) => type.type.name).join(', '),
                 id: result.id
             }))
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .map((poke) =>`
         <li class="card">
             <p class="card-number">${poke.id}</p>
-            <img class="card-image" src="${poke.image}"/>
+            <img class="card-image" data-class="not-shiny" src="${poke.image}"/>
             <h2 class="card-title">${poke.name}</h2>
             <p class="card-subtitle">Type: ${poke.type}</p>
         </li>`
@@ -33,4 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
         pokedexPage.innerHTML = pokemonHMTLString
     }
     fetchPokemon()
+
+    pokedexPage.addEventListener('click', (event) =>{
+        if(event.target.tagName === "IMG" && event.target.dataset.class == "not-shiny"){
+            fetch(`https://pokeapi.co/api/v2/pokemon/${event.target.parentElement.firstElementChild.innerText}`)
+            .then(resp => resp.json())
+            .then(poke => {
+                event.target.src = poke.sprites['front_shiny']
+                event.target.dataset.class = "shiny"
+            })
+        } else if (event.target.tagName === "IMG" && event.target.dataset.class == "shiny"){
+            fetch(`https://pokeapi.co/api/v2/pokemon/${event.target.parentElement.firstElementChild.innerText}`)
+            .then(resp => resp.json())
+            .then(poke => {
+                event.target.src = poke.sprites['front_default']
+                event.target.dataset.class = "not-shiny"
+            })
+        }
+    })
 })
