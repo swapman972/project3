@@ -7,8 +7,10 @@ const login = () => {
     const loginId = document.getElementById('loginForm')
     loginId.addEventListener('submit', e => {
         let username = e.target.username.value
-            if (e.target.id == 'loginForm'){
+            if (e.target.id == 'loginForm' && e.target.username.value == 'Jordan'){
             e.target.username.value = ""
+            const theme = document.querySelector('#theme')
+            theme.href = 'css/jordanTheme.css'
             const loginScreen = document.getElementById('loginScreen')
             loginScreen.style.display = "none"
             const x = document.getElementById("loginSound")
@@ -16,6 +18,28 @@ const login = () => {
             x.play()
             const sysAppName = document.getElementById('systemApplication')
             sysAppName.innerHTML = `Welcome, ${username}!`
+        }else if (e.target.id == 'loginForm' && e.target.username.value == 'Stephen'){
+            e.target.username.value = ""
+            const loginScreen = document.getElementById('loginScreen')
+            theme.href = 'css/stephenTheme.css'
+            loginScreen.style.display = "none"
+            const x = document.getElementById("loginSound")
+            x.volume = 0.2
+            x.play()
+            const sysAppName = document.getElementById('systemApplication')
+            sysAppName.innerHTML = `Welcome, ${username}!`
+        }else if (e.target.id == 'loginForm' && e.target.username.value == 'Vaporwave'){
+            e.target.username.value = ""
+            const loginScreen = document.getElementById('loginScreen')
+            theme.href = 'css/mattTheme.css'
+            loginScreen.style.display = "none"
+            const x = document.getElementById("loginSound")
+            x.volume = 0.2
+            x.play()
+            const sysAppName = document.getElementById('systemApplication')
+            sysAppName.innerHTML = `Welcome, ${username}!`
+        }else {
+            alert('Please enter a valid username.')
         }
     })  
 }
@@ -50,6 +74,10 @@ document.addEventListener('click', e => {
         pokedexWindow.style.display = "block"
     }else if(e.target.id == "closePokedex"){
         pokedexWindow.style.display = "none"
+    }else if(e.target.id == "appHangman"){
+        hangmanWindow.style.display = "block"
+    }else if(e.target.id == "closeStopTrump"){
+        hangmanWindow.style.display = "none"
     }
 })
 

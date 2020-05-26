@@ -1,17 +1,69 @@
 #hangmanWindow{
-    width: 350px;
-    height: 550px;
+    width: 450px;
+    height: 600px;
     position: absolute;
-    display: block;
-    top:150px;
-    left: 240px;
-    background-color: rgba(255, 0, 0, 0.844);
+    display: none;
+    top:100px;
+    left: 740px;
+    box-shadow: 3px 3px #00000048;
+    background-color: rgba(255, 0, 0, 0.899);
+    border: solid 2px #00000080;
     border-radius: 15px;
+}
+#closeStopTrump{
+    width: 30px;
+    height: 30px;
+    margin: 10px 0 0 10px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    background-color: white;
+    border: solid 1px rgba(0, 0, 0, 0.837);
+    border-radius: 50%;
+
+}
+#closeStopTrump:hover{
+    background-color: rgba(255, 255, 255, 0.735);
+}
+#closeStopTrump:active{
+    color:red;
+}
+#stopTrumpHeader{
+    position: relative;
+    top: 0px;
+    left: 32px;
+}
+#gameWindow{
+    width:450px;
+    height: 200px;
+}
+#gameFakeNews{
+    background-image: url('/app/assets/images/stopTrump/7_fakeNews.png');
+}
+#gameHead{
+
+}
+#gameTie{
+
+}
+#gameArm{
+
+}
+#gameArm2{
+
+}
+#gameBody{
+
+}
+#gameBg{
+
 }
 #hangmanKeyboard{
     position: relative;
     top: 40px;
-    left: 10px;
+    left: 30px;
     text-align: center;
 }
 .hm-letters{

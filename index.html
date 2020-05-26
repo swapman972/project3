@@ -6,7 +6,7 @@
         <meta name="description" content="Interactive Desktop">
         <meta name="author" content="JS Interactive">
         <!--STYLES-->
-        <link rel="stylesheet" href="css/index.css">
+        <link id="theme" rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" href="css/calculator.css">
         <link rel="stylesheet" href="css/pokedex.css">
         <link rel="stylesheet" href="css/hangman.css">
@@ -160,9 +160,30 @@
 
             <!---HANGMAN--->
             <div id="hangmanWindow">
-                <table width="324" cellpadding="0" cellspacing="0" border="0">
+                <table>
                     <tr>
-                        <td><div id=""></div></td>
+                        <td width="20px" valign="top"><button id="closeStopTrump">X</button></td>
+                    </tr>
+                </table>
+                <table width="380" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td id="stopTrumpHeader" class="glow"><u>STOP TRUMP</u>!</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div id="gameWindow">
+                                <div id="gameFakeNews"></div>
+                                <div id="gameHead"></div>
+                                <div id="gameTie"></div>
+                                <div id="gameArm"></div>
+                                <div id="gameArm2"></div>
+                                <div id="gameBody"></div>
+                                <div id="gameBg"></div>
+                            </div>
+                    </td>
                     </tr>
                     <tr>
                         <td></td>
