@@ -5,11 +5,38 @@
     display: block;
     top:150px;
     left: 240px;
-    background-color: white;
+    background-color: rgba(255, 0, 0, 0.844);
+    border-radius: 15px;
+}
+#hangmanKeyboard{
+    position: relative;
+    top: 40px;
+    left: 10px;
+    text-align: center;
 }
 .hm-letters{
-    font-size: 22px;
+    font-size: 27px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.hm-letters:hover{
+    color: white;
+}
+.hm-letters:active{
+    font-size: 26px;
+    padding-bottom: 2px;
+    color: rgba(255, 255, 255, 0.741);
 }
 .hm-reset{
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.hm-reset:hover{
+    color: white;
+}
+.hm-reset:active{
     font-size: 12px;
+    padding-bottom: 2px;
+    color: rgba(255, 255, 255, 0.741);
 }
