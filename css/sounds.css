@@ -1,0 +1,66 @@
+#soundWindow{
+    position: relative;
+    width: 500px;
+    height: 350px;
+    box-shadow: 3px 3px #00000048;
+    background-color: rgba(8, 5, 168, 0.949);
+    border: 2px;
+    border-style: solid;
+    border-radius: 8px;
+    border-color: #00000080;
+    margin: 0 auto;
+    top:100px;
+    left: -80px;
+    z-index: 20;
+    display: block;
+}
+
+#airhorn, #another-one, #bruh, #codec, #crickets, 
+#LawOrder, #hadouken, #itsMeMario, #marioCoin, 
+#mario1up, #MSG, #Oh-no{
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: rgb(46, 60, 255);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+#airhorn:hover, #another-one:hover, #bruh:hover, #codec:hover, #crickets:hover, 
+#LawOrder:hover, #hadouken:hover, #itsMeMario:hover, #marioCoin:hover, 
+#mario1up:hover, #MSG:hover, #Oh-no:hover {
+    background-color: #0bb1f3
+}
+
+#airhorn:active {
+    background-color: #3e578e;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+#closeSounds{
+    width: 30px;
+    height: 30px;
+    margin: -25px 0 0 -15px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    background-color: rgba(26, 212, 245, 0.837);
+    border: solid 1px white;
+    border-radius: 50%;
+}
+#closeSounds:hover{
+    opacity: .7;
+}
+#closeSounds:active{
+    background-color: black;
+    color: white;
+}
