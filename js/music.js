@@ -11,7 +11,7 @@ document.addEventListener('dblclick', e => {
     if (e.target.id == "musicFolder"){
         musicWindow.style.display = "block"
     }else if(e.target.dataset.id == "musicTrack"){
-        currentSong = e.target.dataset.track
+        currentSong = parseInt(e.target.dataset.track)
         currentSongTitle = e.target.textContent
         playSong()
     }
@@ -58,7 +58,9 @@ document.addEventListener('click', e => {
         playSong()
     }else if(e.target.id == "nextSong"){
         currentSong = currentSong + 1
-        currentSongTitle = document.querySelector(`[data-track = "${currentSong}"]`).textContent
+        console.log(currentSong)
+        currentSongX = document.querySelector(`[data-track = "${currentSong}"]`)
+        currentSongTitle = currentSongX.textContent
         playSong()
     }
 })

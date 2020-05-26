@@ -114,6 +114,7 @@
     top:96px;
     left:10px;
     background-image: url('/app/assets/images/stopTrump/1_ovalOffice.png');
+    border: solid 2px rgba(255, 255, 255, 0.837);
     width:430px;
     height: 265px;
     display: block;
