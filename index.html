@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/music.css">
         <link rel="stylesheet" href="css/appNav.css">
         <link rel="stylesheet" href="css/sounds.css">
+        <link rel="stylesheet" href="css/rockPaperScissor.css">
 
         <!--AUDIO-->
         <audio id="loginSound">
@@ -317,7 +318,33 @@
 
             <!-- RockPaperScissors -->
             <div id="rockPaperScissorWindow">
-                <!-- <h1>Fire Grass Water</h1> -->
+                <header id="RPSHeader">
+                    <img id="fireLogo" src="app/assets/images/fireElementPokemon.png" alt="" height=100 width=100>
+                    <img id="grassLogo" src="app/assets/images/waterElementPokemon.png" alt="" height=100 width=100>
+                    <img id="waterLogo" src="app/assets/images/grassElementPokemon.png" alt="" height=100 width=100>
+                </header>
+                <img id="userTrainer" src="app/assets/images/Pokémon_Trainer.png" alt="" height=125 width=125>
+                <img id="compTrainer" src="app/assets/images/Blue.png" alt="" height=132 width=100>
+                <img id="oak" src="app/assets/images/Professor_Oak.png" alt="" height=125 width=125>
+                <div class="scoreboard">
+                    <div id="user-label" class="badge">You</div>
+                    <div id="computer-label" class="badge">Computer</div>
+                    <span id="user-score">0</span>:<span id="computer-score">0</span>
+                </div>
+
+                <div class="result">Choose your Pokemon</div>
+
+                <div class="choices">
+                    <div class="choice">
+                        <img id="r" src="app/assets/images/fireElementPokemon.png" alt="" height=125 width=125>
+                        <img id="p" src="app/assets/images/waterElementPokemon.png" alt="" height=125 width=125>
+                        <img id="s" src="app/assets/images/grassElementPokemon.png" alt="" height=125 width=125>
+                    </div>
+                </div>
+
+                <button id="restart">Restart</button> <br>
+                <button id="changePoke">Change Pokemons</button>
+                <button id="closeRPS">X</button>
             </div>
 
             <div id="dock-container">
@@ -340,8 +367,8 @@
                          <a href="#hangman"><img id="appHangman" class="appIcon" src="app/assets/images/stopTrump/stopTrumpIcon.gif"/></a>
                       </li>
                       <li>
-                         <span class="appTag">APP 5</span>
-                         <a href="#"><img class="appIcon" src="https://getdrawings.com/free-icon-bw/instagram-small-icon-9.png"/></a>
+                         <span class="appTag">R.P.S</span>
+                         <a href="#"><img class="appIcon" src="app/assets/images/RockPaperScissor.gif"/></a>
                       </li>
                    </ul>
                  </div>
@@ -352,5 +379,6 @@
     <script defer src="js/music.js"></script>
     <script defer src="js/pokedex.js"></script>
     <script defer src="js/hangman.js"></script>
+    <script defer src="js/rockPaperScissor.js"></script>    
     </body>
 </html>
