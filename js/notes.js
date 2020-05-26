@@ -8,14 +8,14 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderNoteTitle(aNote) {
         let n = document.createElement('li')
         n.setAttribute('class', ' pad5')
-        n.innerHTML = `<a id=${aNote.id} class="font-noStyle" href="#${aNote.title}"> ${aNote.title}</a>`
+        n.innerHTML = `<a id=${aNote.id} data-id="note" class="font-noStyle" href="#${aNote.title}"> ${aNote.title}</a>`
         noteList.appendChild(n)
     }
     
     function renderNoteInfo(aNote) {
         noteTitle.innerHTML = `<h2>${aNote.title}</h2>`
         let n = document.createElement('p')
-        n.innerHTML = `${aNote.content}
+        n.innerHTML = `<a>${aNote.content}</a>
         <br>
         <br>
         <button data-id=${aNote.id} id="editNoteBtn">Edit this note</button>
@@ -81,59 +81,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     noteList.addEventListener('click', (e) =>{
-        if(e.target.tagName === "A"){
+        if(e.target.dataset.id === "note"){
             fetch(`http://localhost:3000/notes/${e.target.id}`)
             .then(resp => resp.json())
             .then(note => {
                 renderNoteInfo(note)
-                const deleteNoteBtn = document.getElementById('deleteNoteBtn')
-                deleteNoteBtn.addEventListener('click', (e) => {
-                    fetch(`http://localhost:3000/notes/${e.target.dataset.id}`,{
-                        method: "DELETE"
-                    })
-                    .then(resp => resp.json())
-                    .then(json => {
-                        for(let i=0; i < noteList.children.length; i++){
-                            if(parseInt(noteList.children[i].id) === json.id){
-                                noteList.removeChild(noteList.children[i])
-                                noteTitle.innerHTML =""
-                            }
-                        }
-                    })
-                })
-                const editNoteBtn = document.getElementById('editNoteBtn')
-                editNoteBtn.addEventListener('click', (event) => {
-                    noteTitle.appendChild(editForm)
-                    editForm.dataset.id = note.id
-                    editForm.title.value = note.title
-                    editForm.content.value = note.content
-                    debugger
-                    editForm.addEventListener('submit', (e)=> { //problem (does it twice)
-                        debugger
-                        e.preventDefault()
-                        fetch(`http://localhost:3000/notes/${e.target.dataset.id}`,{
-                            method: "PUT",
-                            headers: {
-                                'Content-Type': 'application/json',
-                            },
-                            body: JSON.stringify({
-                                "title": editForm.title.value,
-                                "content": editForm.content.value
-                            })
-                        })
-                        .then(resp => resp.json())
-                        .then(newNote => {
-                            // what do i need to do.....
-                            note.title = newNote.title
-                            note.content = newNote.content
-                            editForm.title.value = ''
-                            editForm.content.value = ''
-                            noteList.innerHTML = ""
-                            renderAllNotes()
-                            renderNoteInfo(note)
-                        }) 
+            })
+        }
+    })
+    
+    document.addEventListener("click", (e) =>{
+        if(e.target.id === "editNoteBtn"){
+            let noteT = e.target.parentElement.parentElement.firstElementChild.innerText
+            let noteC = e.target.parentElement.firstElementChild.innerText
+            noteTitle.appendChild(editForm)
+            editForm.dataset.id = e.target.dataset.id
+            editForm.title.value = noteT
+            editForm.content.value = noteC
+            editForm.addEventListener('submit', (event)=> { //problem (does it twice)
+                event.preventDefault()
+                fetch(`http://localhost:3000/notes/${e.target.dataset.id}`,{
+                    method: "PUT",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        Accept: "application/json"
+                    },
+                    body: JSON.stringify({
+                        "title": editForm.title.value,
+                        "content": editForm.content.value
                     })
                 })
+                .then(resp => resp.json())
+                .then(newNote => {
+                    noteT = newNote.title
+                    noteC = newNote.content
+                    editForm.title.value = ''
+                    editForm.content.value = ''
+                    noteList.innerHTML = ""
+                    renderAllNotes()
+                    renderNoteInfo(newNote)
+                }) 
+            })
+        } else if (e.target.id === "deleteNoteBtn"){
+            fetch(`http://localhost:3000/notes/${e.target.dataset.id}`,{
+                method: "DELETE"
+            })
+            .then(resp => resp.json())
+            .then(json => {
+                for(let i=0; i < noteList.children.length; i++){
+                    if(parseInt(noteList.children[i].firstChild.id) === json.id){
+                        noteList.removeChild(noteList.children[i])
+                        noteTitle.innerHTML =""
+                    }
+                }
             })
         }
     })
