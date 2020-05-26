@@ -41,46 +41,48 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     renderAllNotes()
 
-    const editForm = document.createElement('form')
-    //You can have an entire table inside a form. You can have a form inside a table cell. 
-    //You cannot have part of a table inside a form.
-    editForm.className = "editNoteForm"
-    editForm.innerHTML =`
-    <table width="500" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-            <td width="100%"><h3>Edit your Note!</h3></td>
-        </tr>
-        <tr>
-            <td width="100%" valign="top">
-                    <input class="addNoteTitle" 
-                    type="text"
-                    name="title"
-                    value=""
-                    placeholder="Edit your note title.."/>
-            </td>
-        </tr>
-        <tr>
-            <td width="100%" valign="top">
-                <textarea
-                    class="addNoteContent"
-                    type="text"
-                    name="content"
-                    value=""
-                    placeholder="Edit your content..."></textarea>
-            </td>
-        </tr>
-        <tr>
-            <td width="100">
-                <input class="addNoteSubmit"
-                type="submit"
-                name="submit"
-                value="Edit Your Note"
-                class="editNoteSubmit"
-                 />
-            </td>
-        </tr>
-    </table>`
-
+    function returnEditForm() {
+        const editForm = document.createElement('form')
+        //You can have an entire table inside a form. You can have a form inside a table cell. 
+        //You cannot have part of a table inside a form.
+        editForm.className = "editNoteForm"
+        editForm.innerHTML =`
+        <table width="500" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+                <td width="100%"><h3>Edit your Note!</h3></td>
+            </tr>
+            <tr>
+                <td width="100%" valign="top">
+                        <input class="addNoteTitle" 
+                        type="text"
+                        name="title"
+                        value=""
+                        placeholder="Edit your note title.."/>
+                </td>
+            </tr>
+            <tr>
+                <td width="100%" valign="top">
+                    <textarea
+                        class="addNoteContent"
+                        type="text"
+                        name="content"
+                        value=""
+                        placeholder="Edit your content..."></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td width="100">
+                    <input class="addNoteSubmit"
+                    type="submit"
+                    name="submit"
+                    value="Edit Your Note"
+                    class="editNoteSubmit"
+                    />
+                </td>
+            </tr>
+        </table>`
+        return editForm
+    }
 
     
     noteList.addEventListener('click', (e) =>{
@@ -97,6 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if(e.target.id === "editNoteBtn"){
             let noteT = e.target.parentElement.parentElement.firstElementChild.innerText
             let noteC = e.target.parentElement.firstElementChild.innerText
+            const editForm = returnEditForm()
             noteTitle.appendChild(editForm)
             editForm.dataset.id = e.target.dataset.id
             editForm.title.value = noteT
