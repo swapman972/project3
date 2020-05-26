@@ -1,0 +1,15 @@
+#hangmanWindow{
+    width: 350px;
+    height: 550px;
+    position: absolute;
+    display: block;
+    top:150px;
+    left: 240px;
+    background-color: white;
+}
+.hm-letters{
+    font-size: 22px;
+}
+.hm-reset{
+    font-size: 12px;
+}
