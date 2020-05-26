@@ -13,6 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function renderNoteInfo(aNote) {
+        while(noteTitle.firstChild){
+            noteTitle.removeChild(noteTitle.firstChild)
+        }
         noteTitle.innerHTML = `<h2>${aNote.title}</h2>`
         let n = document.createElement('p')
         n.innerHTML = `<a>${aNote.content}</a>
@@ -100,6 +103,7 @@ document.addEventListener('DOMContentLoaded', () => {
             editForm.content.value = noteC
             editForm.addEventListener('submit', (event)=> { //problem (does it twice)
                 event.preventDefault()
+                debugger
                 fetch(`http://localhost:3000/notes/${e.target.dataset.id}`,{
                     method: "PUT",
                     headers: {
@@ -115,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 .then(newNote => {
                     noteT = newNote.title
                     noteC = newNote.content
+                    editForm.dataset.id = ''
                     editForm.title.value = ''
                     editForm.content.value = ''
                     noteList.innerHTML = ""
