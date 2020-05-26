@@ -1,4 +1,3 @@
-function generateHangmanGame(){
     const hangmanKeyboard = document.querySelector('#hangmanKeyboard')
     hangmanKeyboard.innerHTML =
     `
@@ -119,12 +118,7 @@ function generateHangmanGame(){
             }
             playSoundbite()
         }else if (e.target.className == "hm-reset"){
-                guessed = []
-                mistakes = 0
-                updateHangmanPicture()
-                randomWord()
-                guessedWord()
-                newQuestion()
+            gameReset()
         }
     })
     
@@ -152,29 +146,41 @@ function generateHangmanGame(){
     }
     
     function checkIfGameWon() {
-      if (wordStatus === answer) {
-        document.getElementById('gameHint').innerHTML = 'YOU STOPPED TRUMP!!!'
-      }
+        if (wordStatus === answer) {
+            document.getElementById('gameHint').innerHTML = 'YOU STOPPED TRUMP!!!'
+            setTimeout(gameReset, 4000)
+        }
     }
     
     function checkIfGameLost() {
-      if (mistakes === maxWrong) {
-        document.getElementById('gameHint').innerHTML = 'The answer was: ' + answer
-        document.getElementById('gameGuess').innerHTML = 'Trump Wins 🤡'
-        gameOver()
-      }
+        if (mistakes === maxWrong) {
+            playGameEnd()
+            document.getElementById('gameHint').innerHTML = 'The answer was: ' + answer
+            document.getElementById('gameGuess').innerHTML = 'Trump Wins 🤡'
+            setTimeout(gameReset, 4000)
+        }
     }
     
     function guessedWord()  {
-      wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('')
-      document.getElementById('gameGuess').innerHTML = wordStatus
+        wordStatus = answer.split('').map(letter => (guessed.indexOf(letter) >= 0 ? letter : " _ ")).join('')
+        document.getElementById('gameGuess').innerHTML = wordStatus
     }
-    
+
+    function gameReset(){
+        guessed = []
+        mistakes = 0
+        updateHangmanPicture()
+        randomWord()
+        guessedWord()
+        newQuestion()
+    }
+
     randomWord()
     guessedWord()
     newQuestion()
     updateHangmanPicture()
-}
+
+
 
 
 let soundbite = new Audio()
@@ -182,6 +188,7 @@ let soundbite = new Audio()
 let currentSoundbite = 0
 
 const introSoundbite = "./app/assets/sounds/stopTrump/americanDream.mp3"
+const endGameSoundbite = "./app/assets/sounds/stopTrump/greatest.mp3"
 
 let soundbites = [
     "./app/assets/sounds/stopTrump/losers.mp3",
@@ -198,7 +205,7 @@ const playSoundbite = () => {
     soundbite.src = soundbites[randomNum]
     soundbite.play()
 }
-const gameOver = () => {
-    soundbite.src = "./app/assets/sounds/stopTrump/greatest.mp3",
+const playGameEnd = () => {
+    soundbite.src = endGameSoundbite
     soundbite.play()
 }
