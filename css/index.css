@@ -229,12 +229,12 @@ animation-name: fadeOut;
 }
 #date-month{
     position: absolute;
-    top: 50px;
+    top: 55px;
     left: 15px;
 }
 #weatherApp{
     position: relative;
-    top: 150px;
+    top: 160px;
     opacity: .7;
 }
 

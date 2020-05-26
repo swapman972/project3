@@ -1,7 +1,6 @@
 #calculatorWidget{
     position: absolute;
-    top: 700px;
-    left: 15px;
+    top: 685px;
     margin-bottom: 50px;
     background-color: #FFFFFFBF;
 }
@@ -9,9 +8,9 @@
     padding-top:3px;
 }
 #display {
-    width: 248px;
+    width: 274px;
     height: 50px;
-    font-size: 26px;
+    font-size: 32px;
     color: #fff;
     text-align: right;
     background-color: #404040;
@@ -27,14 +26,13 @@
     color: #333333;
     background-color: #ffffffBF;
     border-radius: 3px;
-    width: 60px;
-    height: 40px;
+    width: 62px;
+    height: 42px;
     float: left;
     left: 2px;
     font-size: 20px;
     box-shadow: 0 4px rgba(0,0,0,0.2);
-    margin-top: 2px;
-    margin-bottom: 4px;
+    margin: 2px 0 4px 2px;
 }
 .calInput:hover {
     background-color: #dbdbdb80;
