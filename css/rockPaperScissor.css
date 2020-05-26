@@ -1,0 +1,16 @@
+#rockPaperScissorWindow{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    box-shadow: 3px 3px #00000048;
+    background-color: rgba(8, 5, 168, 0.949);
+    border: 2px;
+    border-style: solid;
+    border-radius: 8px;
+    border-color: #00000080;
+    margin: 0 auto;
+    top:100px;
+    left:200px;
+    z-index: 20;
+    display: block;
+}
