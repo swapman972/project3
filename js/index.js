@@ -59,11 +59,11 @@ document.addEventListener('click', e => {
         loginScreen.style.zIndex = 25
         loginScreen.style.display = "block"
     }else if (e.target.dataset.id == "closed"){
-      e.target.dataset.id = "open"
-      document.getElementById("mySidebar").style.transform = "translateX(-100%)"
+        e.target.dataset.id = "open"
+        document.getElementById("mySidebar").style.transform = "translateX(-100%)"
     }else if (e.target.dataset.id == "open"){
-      e.target.dataset.id = "closed"
-      document.getElementById("mySidebar").style.transform = "translateX(0)"
+        e.target.dataset.id = "closed"
+        document.getElementById("mySidebar").style.transform = "translateX(0)"
     }else if (e.target.id == "closeNotes"){
         notesWindow.style.display = "none"
     }else if(e.target.id == "appNotes"){

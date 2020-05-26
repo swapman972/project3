@@ -1,14 +1,15 @@
 #hangmanWindow{
+    position: fixed;
     width: 450px;
-    height: 600px;
-    position: absolute;
+    height: 670px;
     display: none;
-    top:100px;
-    left: 740px;
+    top:6vh;
+    left: 60%;
     box-shadow: 3px 3px #00000048;
     background-color: rgba(255, 0, 0, 0.899);
     border: solid 2px #00000080;
     border-radius: 15px;
+    z-index: 15;
 }
 #closeStopTrump{
     width: 30px;
@@ -33,37 +34,95 @@
 #stopTrumpHeader{
     position: relative;
     top: 0px;
-    left: 32px;
+    left: 12px;
 }
 #gameWindow{
-    width:450px;
-    height: 200px;
+    width:430px;
+    height: 265px;
+    margin-top:30px;
+    margin-left: 10px;
+    background-color: white;
+    z-index: 1;
 }
 #gameFakeNews{
+    width: 140px;
+    height: auto;
+    top:100px;
+    left:270px;
+    position: absolute;
     background-image: url('/app/assets/images/stopTrump/7_fakeNews.png');
+    z-index: 8;
+    display: none;
 }
 #gameHead{
+    width:115px;
+    height: auto;
+    top:96px;
+    left:168px;
+    position: absolute;
+    background-image: url('/app/assets/images/stopTrump/2_head.png');
+    z-index: 7;
+    display: none;
 
 }
 #gameTie{
+    width:98px;
+    height: auto;
+    top:202px;
+    left:218px;
+    position: absolute;
+    background-image: url('/app/assets/images/stopTrump/6_tie.png');
+    z-index: 6;
+    display: none;
 
 }
 #gameArm{
+    width:44px;
+    height: auto;
+    top:208px;
+    left:254px;
+    position: absolute;
+    background-image: url('/app/assets/images/stopTrump/4_arm.png');
+    z-index: 5;
+    display: none;
 
 }
 #gameArm2{
+    width:52px;
+    height: auto;
+    top:150px;
+    left:140px;
+    position: absolute;
+    background-image: url('/app/assets/images/stopTrump/5_arm2.png');
+    z-index: 4;
+    display: none;
 
 }
 #gameBody{
+    position: absolute;
+    width:100px;
+    height: auto;
+    top:185px;
+    left:175px;
+    background-image: url('/app/assets/images/stopTrump/3_body.png');
+    z-index: 3;
+    display: none;
 
 }
 #gameBg{
-
+    position: absolute;
+    top:96px;
+    left:10px;
+    background-image: url('/app/assets/images/stopTrump/1_ovalOffice.png');
+    width:430px;
+    height: 265px;
+    display: block;
+    z-index: 2;
 }
 #hangmanKeyboard{
     position: relative;
     top: 40px;
-    left: 30px;
+    left: 5px;
     text-align: center;
 }
 .hm-letters{
