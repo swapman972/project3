@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let n = document.createElement('li')
         n.setAttribute('class', ' pad5')
         n.innerHTML = `<a id=${aNote.id} data-id="note" class="font-noStyle" href="#${aNote.title}"> ${aNote.title}</a>`
-        noteList.appendChild(n)
+        noteList.prepend(n)
     }
     
     function renderNoteInfo(aNote) {
