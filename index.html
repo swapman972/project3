@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="css/music.css">
         <link rel="stylesheet" href="css/appNav.css">
         <link rel="stylesheet" href="css/sounds.css">
+        <link rel="stylesheet" href="css/rockPaperScissor.css">
 
         <!--AUDIO-->
         <audio id="loginSound">
@@ -342,7 +343,34 @@
 
             <!-- RockPaperScissors -->
             <div id="rockPaperScissorWindow">
-                <!-- <h1>Fire Grass Water</h1> -->
+                <img id="fireLogo" src="app/assets/images/fireElementPokemon.png" alt="" height=100 width=100>
+                <img id="grassLogo" src="app/assets/images/grassElementPokemon.png" alt="" height=100 width=100>
+                <img id="waterLogo" src="app/assets/images/waterElementPokemon.png" alt="" height=100 width=100>
+                <div class="scoreboard">
+                    <div id="user-label" class="badge">You</div>
+                    <div id="computer-label" class="badge">Computer</div>
+                    <span id="user-score">0</span>:<span id="computer-score">0</span>
+                </div>
+
+                <div class="result">
+                    <p>Fire beats Grass. You win</p>
+                </div>
+
+                <div class="choices">
+                    <div class="choices">
+                        <img src="app/assets/images/waterElementPokemon.png" alt="" height=50 width=50>
+                    </div>
+                </div>
+                <div class="choices">
+                    <div class="choices">
+                        <img src="app/assets/images/grassElementPokemon.png" alt="" height=50 width=50>
+                    </div>
+                </div>
+                <div class="choices">
+                    <div class="choices">
+                        <img src="app/assets/images/fireElementPokemon.png" alt="" height=50 width=50>
+                    </div>
+                </div>
             </div>
 
             <div id="dock-container">
