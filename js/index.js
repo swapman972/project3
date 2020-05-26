@@ -75,7 +75,9 @@ document.addEventListener('click', e => {
     }else if(e.target.id == "closePokedex"){
         pokedexWindow.style.display = "none"
     }else if(e.target.id == "appHangman"){
+        generateHangmanGame()
         hangmanWindow.style.display = "block"
+        playIntro()
     }else if(e.target.id == "closeStopTrump"){
         hangmanWindow.style.display = "none"
     }

@@ -1,7 +1,7 @@
 #hangmanWindow{
     position: fixed;
     width: 450px;
-    height: 670px;
+    height: 680px;
     display: none;
     top:6vh;
     left: 60%;
@@ -122,14 +122,14 @@
 }
 #hangmanKeyboard{
     position: relative;
-    top: 40px;
+    top: 30px;
     left: 5px;
     text-align: center;
 }
 .hm-letters{
     font-size: 27px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: auto;
 }
 .hm-letters:hover{
     color: white;
@@ -151,4 +151,7 @@
     font-size: 12px;
     padding-bottom: 2px;
     color: rgba(255, 255, 255, 0.741);
+}
+.trumpPadding{
+    padding: 10px 30px 10px 30px;
 }
