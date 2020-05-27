@@ -50,7 +50,6 @@
     width:430px;
     height: 265px;
     background-color: rgb(0, 0, 0);
-    background-image: url('/app/assets/images/stopTrump/8_jail.png');
     -webkit-animation-duration: 250ms;
     animation-duration: 250ms;
     -webkit-animation-fill-mode: both;
@@ -76,7 +75,6 @@
     top:100px;
     left:270px;
     position: absolute;
-    background-image: url('/app/assets/images/stopTrump/7_fakeNews.png');
     z-index: 8;
     display: none;
 }
@@ -86,7 +84,6 @@
     top:96px;
     left:168px;
     position: absolute;
-    background-image: url('/app/assets/images/stopTrump/2_head.png');
     z-index: 7;
     display: none;
 
@@ -97,7 +94,6 @@
     top:202px;
     left:218px;
     position: absolute;
-    background-image: url('/app/assets/images/stopTrump/6_tie.png');
     z-index: 6;
     display: none;
 
@@ -108,7 +104,6 @@
     top:208px;
     left:254px;
     position: absolute;
-    background-image: url('/app/assets/images/stopTrump/4_arm.png');
     z-index: 5;
     display: none;
 
@@ -119,7 +114,6 @@
     top:150px;
     left:140px;
     position: absolute;
-    background-image: url('/app/assets/images/stopTrump/5_arm2.png');
     z-index: 4;
     display: none;
 
@@ -130,7 +124,6 @@
     height: auto;
     top:185px;
     left:175px;
-    background-image: url('/app/assets/images/stopTrump/3_body.png');
     z-index: 3;
     display: none;
 
@@ -139,7 +132,6 @@
     position: absolute;
     top:96px;
     left:10px;
-    background-image: url('/app/assets/images/stopTrump/1_ovalOffice.png');
     border: solid 2px rgba(255, 255, 255, 0.837);
     width:430px;
     height: 265px;

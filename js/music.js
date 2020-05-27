@@ -77,7 +77,6 @@ document.addEventListener('click', e => {
         playSong()
     }else if(e.target.id == "nextSong"){
         currentSong = currentSong + 1
-        console.log(currentSong)
         currentSongX = document.querySelector(`[data-track = "${currentSong}"]`)
         currentSongTitle = currentSongX.textContent
         playSong()
