@@ -20,7 +20,6 @@ const changePokeBtn = document.getElementById('changePoke')
 const rsp = document.getElementById('RPS')
 
 let soundForGame = new Audio()
-soundForGame.volume = 0.5
 
 let gameSound = {
     fire: "./app/assets/sounds/fireSound.mp3",
@@ -30,6 +29,7 @@ let gameSound = {
 }
 const playGameIntro = () => {
     soundForGame.src = gameSound["intro"]
+    soundForGame.volume = 0.4
     soundForGame.play()
 }
 rsp.addEventListener("click", ()=>{ playGameIntro()})
@@ -125,14 +125,17 @@ function game(userChoice) {
 
 function main() {
     fire.addEventListener('click', ()=> { 
+        soundForGame.volume = 1
         playElementSound("fire")
         game('Fire') 
     })
     grass.addEventListener('click', ()=> { 
+        soundForGame.volume = 1
         playElementSound("grass")
         game('Grass') 
     })
     water.addEventListener('click', ()=> { 
+        soundForGame.volume = 1
         playElementSound("water")
         game('Water') 
     })
