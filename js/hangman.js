@@ -154,10 +154,10 @@
     
     function checkIfGameLost() {
         if (mistakes === maxWrong) {
-            playGameEnd()
             document.querySelector('#gameFakeNews').style.display = "block"
             document.getElementById('gameHint').innerHTML = 'The answer was: ' + answer
             document.getElementById('gameGuess').innerHTML = 'Trump Wins 🤡'
+            setTimeout(playGameEnd, 1)
             setTimeout(gameReset, 4000)
         }
     }
