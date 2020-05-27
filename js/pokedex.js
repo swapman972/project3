@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const pokeApp = document.getElementById("appPokedex")
     let pokeSound = "./app/assets/sounds/pokedexOpen.mp3"
     let introPokedex = new Audio()
+    introPokedex.volume = 0.5
     introPokedex.src = pokeSound
     pokeApp.addEventListener('click', ()=> {introPokedex.play() })
 

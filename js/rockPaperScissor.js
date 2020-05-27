@@ -20,6 +20,7 @@ const changePokeBtn = document.getElementById('changePoke')
 const rsp = document.getElementById('RPS')
 
 let soundForGame = new Audio()
+soundForGame.volume = 0.5
 
 let gameSound = {
     fire: "./app/assets/sounds/fireSound.mp3",

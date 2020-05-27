@@ -5,6 +5,7 @@ const songDisplay = document.querySelector('#songDisplay')
 const fillBar = document.querySelector('#fill')
 
 let song = new Audio()
+song.volume = 0.5
 let currentSong = 0
 let currentSongTitle = ""
 
