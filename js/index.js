@@ -87,6 +87,12 @@ document.addEventListener('click', e => {
     }else if(e.target.id == "RPS"){
         rockPaperScissorWindow.style.display = "block"
     }else if(e.target.id == "closeRPS"){
+        compScoreSpan.innerHTML = 0
+        userScoreSpan.innerHTML = 0
+        userScore = 0
+        compScore = 0
+        result.innerHTML = "Choose your Pokemon"
+        pokemonPic()
         rockPaperScissorWindow.style.display = "none"
     }
 })
