@@ -15,40 +15,40 @@ hangmanKeyboard.innerHTML =
     `
     <table width="100%" align="center" cellpadding="10" cellspacing="0" border="0">
         <tr>
-            <td width="14%" height="18" class="hm-letters" data-id="A">A</td>
-            <td width="14%" height="18" class="hm-letters" data-id="B">B</td>
-            <td width="14%" height="18" class="hm-letters" data-id="C">C</td>
-            <td width="14%" height="18" class="hm-letters" data-id="D">D</td>
-            <td width="14%" height="18" class="hm-letters" data-id="E">E</td>
-            <td width="14%" height="18" class="hm-letters" data-id="F">F</td>
-            <td width="14%" height="18" class="hm-letters" data-id="G">G</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">A</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">B</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">C</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">D</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">E</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">F</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">G</td>
         </tr>
         <tr>
-            <td width="14%" height="18" class="hm-letters" data-id="H">H</td>
-            <td width="14%" height="18" class="hm-letters" data-id="I">I</td>
-            <td width="14%" height="18" class="hm-letters" data-id="J">J</td>
-            <td width="14%" height="18" class="hm-letters" data-id="K">K</td>
-            <td width="14%" height="18" class="hm-letters" data-id="L">L</td>
-            <td width="14%" height="18" class="hm-letters" data-id="M">M</td>
-            <td width="14%" height="18" class="hm-letters" data-id="N">N</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">H</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">I</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">J</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">K</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">L</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">M</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">N</td>
         </tr>
         <tr>
-            <td width="14%" height="18" class="hm-letters" data-id="O">O</td>
-            <td width="14%" height="18" class="hm-letters" data-id="P">P</td>
-            <td width="14%" height="18" class="hm-letters" data-id="Q">Q</td>
-            <td width="14%" height="18" class="hm-letters" data-id="R">R</td>
-            <td width="14%" height="18" class="hm-letters" data-id="S">S</td>
-            <td width="14%" height="18" class="hm-letters" data-id="T">T</td>
-            <td width="14%" height="18" class="hm-letters" data-id="U">U</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">O</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">P</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">Q</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">R</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">S</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">T</td>
+            <td width="14%" height="18" class="hm-letters" data-id="gameLetter">U</td>
         </tr>
     </table>
     <table width="100%" cellpadding="10" cellspacing="0" border="0">
         <tr>
-            <td width="16%" height="18" class="hm-letters" data-id="V">V</td>
-            <td width="16%" height="18" class="hm-letters" data-id="W">W</td>
-            <td width="16%" height="18" class="hm-letters" data-id="X">X</td>
-            <td width="16%" height="18" class="hm-letters" data-id="Y">Y</td>
-            <td width="16%" height="18" class="hm-letters" data-id="Z">Z</td>
+            <td width="16%" height="18" class="hm-letters" data-id="gameLetter">V</td>
+            <td width="16%" height="18" class="hm-letters" data-id="gameLetter">W</td>
+            <td width="16%" height="18" class="hm-letters" data-id="gameLetter">X</td>
+            <td width="16%" height="18" class="hm-letters" data-id="gameLetter">Y</td>
+            <td width="16%" height="18" class="hm-letters" data-id="gameLetter">Z</td>
             <td width="20%" height="18" class="hm-reset" data-id="reset">RESET</td>
         </tr>
     </table>
@@ -110,9 +110,18 @@ function newQuestion() {
 
 // LETTER SELECTING FUNCTIONALITY
 document.addEventListener('click', e => {
+
+    // LETTER SELECTION
     if (e.target.className == "hm-letters"){
+
+        // PUSH GUESSED LETTER INTO GUESSED ARRAY
         let chosenLetter = e.target.textContent
         guessed.push(chosenLetter)
+
+        // SET GUESSED LETTER CSS CLASS TO INVALID
+        e.target.className = "hm-letters-used"
+
+        // GAME WON/LOST?
         if (answer.indexOf(chosenLetter) >= 0) {
             guessedWord();
             checkIfGameWon();
@@ -122,7 +131,11 @@ document.addEventListener('click', e => {
             checkIfGameWon()
             checkIfGameLost()
         }
+
+        // AUDIO SOUNDBITE FOR EACH GUESS
         playSoundbite()
+
+    // RESET SELECTION
     }else if (e.target.className == "hm-reset"){
         gameReset()
     }
@@ -183,15 +196,27 @@ function checkIfGameLost() {
 
 // GAME RESET
 function gameReset(){
+
+    // RESET ALL USED LETTERS
+    for (i=0; i < guessed.length; i++){
+        const allLetters = Array.from(document.querySelectorAll('[data-id="gameLetter"]'))
+        allLetters.forEach(letter => {
+            letter.className = "hm-letters"
+        })
+        
+    }
+    // CLEAR GUESSED QUEUE AND MISTAKES
     guessed = []
     mistakes = 0
-    updateHangmanPicture()
+
+    // RUN NEW GAME
+    document.querySelector('#gameJail').style.display = "none"
     randomWord()
     guessedWord()
     newQuestion()
-    document.querySelector('#gameJail').style.display = "none"
-}
+    updateHangmanPicture()
 
+}
 
 // INITIALIZE GAME
 randomWord()
@@ -200,6 +225,10 @@ newQuestion()
 updateHangmanPicture()
 
 
+
+  /***********************************/
+ /******* [ AUDIO FUNCTIONS ] *******/
+/***********************************/
 
 // AUDIO VARIABLES
 let soundbite = new Audio()
