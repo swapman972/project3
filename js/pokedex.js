@@ -2,6 +2,11 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     const pokedexPage = document.getElementById('pokedex')
+    const pokeApp = document.getElementById("appPokedex")
+    let pokeSound = "./app/assets/sounds/pokedexOpen.mp3"
+    let introPokedex = new Audio()
+    introPokedex.src = pokeSound
+    pokeApp.addEventListener('click', ()=> {introPokedex.play() })
 
     const fetchPokemon = () => {
         const promises = [];
@@ -52,3 +57,4 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 })
+

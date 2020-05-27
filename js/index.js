@@ -80,6 +80,14 @@ document.addEventListener('click', e => {
         playIntro()
     }else if(e.target.id == "closeStopTrump"){
         hangmanWindow.style.display = "none"
+    }else if(e.target.id == "soundFolder"){
+        soundWindow.style.display = "block"
+    }else if(e.target.id == "closeSounds"){
+        soundWindow.style.display = "none"
+    }else if(e.target.id == "RPS"){
+        rockPaperScissorWindow.style.display = "block"
+    }else if(e.target.id == "closeRPS"){
+        rockPaperScissorWindow.style.display = "none"
     }
 })
 
