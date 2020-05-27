@@ -67,7 +67,7 @@
     ]
 
     let answer = ''
-    let maxWrong = 6
+    let maxWrong = 5
     let mistakes = 0
     let guessed = []
     let wordStatus = null
@@ -108,6 +108,7 @@
             let chosenLetter = e.target.textContent
             guessed.push(chosenLetter)
             if (answer.indexOf(chosenLetter) >= 0) {
+                e.target.style.color = "black"
                 guessedWord();
                 checkIfGameWon();
             } else if (answer.indexOf(chosenLetter) === -1) {
@@ -126,15 +127,13 @@
         if (mistakes == 1){
             document.querySelector('#gameBody').style.display = "block"
         }else if (mistakes == 2){
-            document.querySelector('#gameArm2').style.display = "block"
-        }else if (mistakes == 3){
             document.querySelector('#gameArm').style.display = "block"
+        }else if (mistakes == 3){
+            document.querySelector('#gameArm2').style.display = "block"
         }else if (mistakes == 4){
-            document.querySelector('#gameTie').style.display = "block"
-        }else if (mistakes == 5){
             document.querySelector('#gameHead').style.display = "block"
-        }else if (mistakes == 6){
-            document.querySelector('#gameFakeNews').style.display = "block"
+        }else if (mistakes == 5){
+            document.querySelector('#gameTie').style.display = "block"
         }else{
             document.querySelector('#gameBody').style.display = "none"
             document.querySelector('#gameArm2').style.display = "none"
@@ -155,6 +154,7 @@
     function checkIfGameLost() {
         if (mistakes === maxWrong) {
             playGameEnd()
+            document.querySelector('#gameFakeNews').style.display = "block"
             document.getElementById('gameHint').innerHTML = 'The answer was: ' + answer
             document.getElementById('gameGuess').innerHTML = 'Trump Wins 🤡'
             setTimeout(gameReset, 4000)
@@ -194,6 +194,9 @@ let soundbites = [
     "./app/assets/sounds/stopTrump/losers.mp3",
     "./app/assets/sounds/stopTrump/nobodysBetter.mp3",
     "./app/assets/sounds/stopTrump/reallyRich.mp3",
+    "./app/assets/sounds/stopTrump/makeSense.mp3",
+    "./app/assets/sounds/stopTrump/poorPerson.mp3",
+    "./app/assets/sounds/stopTrump/fakeNews.mp3",
     "./app/assets/sounds/stopTrump/stupid.mp3"
 ]
 const playIntro = () => {
@@ -201,7 +204,7 @@ const playIntro = () => {
     soundbite.play()
 }
 const playSoundbite = () => {
-    randomNum = Math.floor(Math.random() * 3)
+    randomNum = Math.floor(Math.random() * 6)
     soundbite.src = soundbites[randomNum]
     soundbite.play()
 }

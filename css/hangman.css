@@ -129,7 +129,7 @@
 .hm-letters{
     font-size: 27px;
     font-weight: bold;
-    cursor: auto;
+    cursor: pointer;
 }
 .hm-letters:hover{
     color: white;

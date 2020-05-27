@@ -243,7 +243,12 @@ animation-name: fadeOut;
 
 /*FOLDER STYLES*/
 #folder1{
+    width: 100px;
+    height: auto;
+    display: inline-block;
+    background-image: url('../app/assets/images/diamond.png');
     margin: 60px 0 0 35px;
+    z-index: 13;
 }
 #folder2{
     margin: 180px 0 0 35px;    
@@ -262,8 +267,8 @@ animation-name: fadeOut;
     background-size:contain;
 }
 .folderName{
-    position: fixed;
-    margin:-10px 0 0 8px;
+    position: relative;
+    font-weight: bold;
 }
 
 
