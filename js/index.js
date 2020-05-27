@@ -22,19 +22,19 @@ const login = () => {
                 theme.href = 'css/jordanTheme.css'
                 const weatherWget= document.getElementById('weatherApp')
                 
-                // MY THEME
+            // MY THEME
             }else if (e.target.id == 'loginForm' && e.target.username.value == json[1].owner){
                 e.target.username.value = ""
                 const loginScreen = document.getElementById('loginScreen')
                 theme.href = 'css/stephenTheme.css'
                 
-                // VAPORWAVE'S THEME
+            // VAPORWAVE'S THEME
             }else if (e.target.id == 'loginForm' && e.target.username.value == json[2].owner){
                 e.target.username.value = ""
                 const loginScreen = document.getElementById('loginScreen')
                 theme.href = 'css/mattTheme.css'
                 
-                // INVALID USERNAME
+            // INVALID USERNAME
             }else {
                 alert('Please enter a valid username.')
                 location.reload()
