@@ -44,6 +44,32 @@
     background-color: white;
     z-index: 1;
 }
+#gameJail{
+    position: absolute;
+    margin: 2px 0 0 2px;
+    width:430px;
+    height: 265px;
+    background-color: rgb(0, 0, 0);
+    background-image: url('/app/assets/images/stopTrump/8_jail.png');
+    -webkit-animation-duration: 250ms;
+    animation-duration: 250ms;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    z-index: 12;
+    display: none;
+}
+@-webkit-keyframes fadeIn {
+    100% {opacity: 0;}
+    0% {opacity: 1;}
+    }
+    @keyframes fadeIn {
+    100% {opacity: 1;}
+    0% {opacity: 0;}
+    }
+.fadeIn {
+    -webkit-animation-name: fadeIn;
+    animation-name: fadeIn;
+} 
 #gameFakeNews{
     width: 140px;
     height: auto;

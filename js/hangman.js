@@ -146,8 +146,9 @@
     
     function checkIfGameWon() {
         if (wordStatus === answer) {
+            document.querySelector('#gameJail').style.display = "block"
             document.getElementById('gameHint').innerHTML = 'YOU STOPPED TRUMP!!!'
-            setTimeout(gameReset, 4000)
+            setTimeout(gameReset, 5000)
         }
     }
     
@@ -173,6 +174,7 @@
         randomWord()
         guessedWord()
         newQuestion()
+        document.querySelector('#gameJail').style.display = "none"
     }
 
     randomWord()
