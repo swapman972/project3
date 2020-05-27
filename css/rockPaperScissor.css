@@ -1,5 +1,5 @@
 #rockPaperScissorWindow{
-    position: relative;
+    position: absolute;
     margin: 0 auto;
     width: 600px;
     height: 600px;
@@ -10,9 +10,9 @@
     border-radius: 8px;
     border-color: #00000080;
     top:100px;
-    left:150px;
-    z-index: 16;
-    display: block;
+    left:750px;
+    z-index: 19;
+    display: none;
 }
 
 #RPSHeader {

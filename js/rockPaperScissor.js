@@ -9,6 +9,26 @@ const water = document.getElementById('p')
 const grass = document.getElementById('s')
 const restartBtn = document.getElementById('restart')
 const changePokeBtn = document.getElementById('changePoke')
+const rsp = document.getElementById('RPS')
+
+let soundForGame = new Audio()
+
+let gameSound = {
+    fire: "./app/assets/sounds/fireSound.mp3",
+    grass: "./app/assets/sounds/grassSound.mp3",
+    water: "./app/assets/sounds/waterSound.mp3",
+    intro: "./app/assets/sounds/pokeIntro.mp3"
+}
+const playGameIntro = () => {
+    soundForGame.src = gameSound["intro"]
+    soundForGame.play()
+}
+rsp.addEventListener("click", ()=>{ playGameIntro()})
+
+const playElementSound = (element) => {
+    soundForGame.src = gameSound[element]
+    soundForGame.play()
+}
 
 function pokemonPic() {
     let randomFire = Math.floor(Math.random() * 12)
@@ -94,12 +114,19 @@ function game(userChoice) {
     }
 }
 
-function main(params) {
-    fire.addEventListener('click', ()=> { game('Fire') })
-    
-    grass.addEventListener('click', ()=> { game('Grass') })
-    
-    water.addEventListener('click', ()=> { game('Water') })
+function main() {
+    fire.addEventListener('click', ()=> { 
+        playElementSound("fire")
+        game('Fire') 
+    })
+    grass.addEventListener('click', ()=> { 
+        playElementSound("grass")
+        game('Grass') 
+    })
+    water.addEventListener('click', ()=> { 
+        playElementSound("water")
+        game('Water') 
+    })
 
     restartBtn.addEventListener('click', ()=> {
         compScoreSpan.innerHTML = 0
