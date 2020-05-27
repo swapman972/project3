@@ -216,6 +216,11 @@ document.addEventListener('DOMContentLoaded', () => {
         
     newForm.addEventListener('submit', (e)=> {
         e.preventDefault()
+        let dId = 0
+        if(document.getElementById('systemApplication').innerHTML === "Welcome, Jordan!"){ dId = 1 }
+        else if (document.getElementById('systemApplication').innerHTML === "Welcome, Stephen!"){ dId = 2 }
+        else if (document.getElementById('systemApplication').innerHTML === "Welcome, VaporMax!"){ dId = 3 }
+        debugger
         fetch('http://localhost:3000/notes', {
             method: 'POST',
             headers: {
@@ -225,7 +230,7 @@ document.addEventListener('DOMContentLoaded', () => {
             body: JSON.stringify({
                 "title": newForm.title.value,
                 "content": newForm.content.value,
-                "desktop_id": 2 //should be desktop_id store form earlier
+                "desktop_id": dId //should be desktop_id store form earlier
             })
         })
         .then(resp => resp.json())
