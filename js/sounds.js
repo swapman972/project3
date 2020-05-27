@@ -23,7 +23,6 @@ let randomSound = {
 
 let soundStart = new Audio()
 const soundWindow = document.getElementById('soundWindow')
-
 function playSound(params) {
     soundStart.src = randomSound[params]
     soundStart.play()

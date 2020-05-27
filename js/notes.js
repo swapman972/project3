@@ -4,22 +4,42 @@ document.addEventListener('click', e => {
         notesWindow.style.display = "none"
     }else if(e.target.id == "appNotes"){
         notesWindow.style.display = "block"
+        renderAllNotes()
     }
 })
+
+const noteList = document.getElementById('notesList')
+const noteInfo = document.getElementById('newNote')
+const noteTitle = noteInfo.getElementsByClassName('noteTitle')[0]
+
+function renderAllNotes() {
+    while(noteList.firstChild){
+        noteList.removeChild(noteList.firstChild)
+    } 
+    fetch('http://localhost:3000/notes')
+    .then(resp => resp.json())
+    .then(notes =>{
+        const myNotes = notes.filter( note =>{
+            if(document.getElementById('systemApplication').innerHTML === "Welcome, Jordan!"){ return note.desktop_id === 1 }
+            else if (document.getElementById('systemApplication').innerHTML === "Welcome, Stephen!"){ return note.desktop_id === 2 }
+            else if (document.getElementById('systemApplication').innerHTML === "Welcome, VaporMax!"){ return note.desktop_id === 3 }
+        })
+        myNotes.forEach(element => {
+            renderNoteTitle(element)
+        });
+    })
+}
+
+function renderNoteTitle(aNote) {
+    let n = document.createElement('li')
+    n.setAttribute('class', ' pad5')
+    n.innerHTML = `<a id=${aNote.id} data-id="note" class="font-noStyle" href="#${aNote.title}"> ${aNote.title}</a>`
+    noteList.prepend(n)
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     // we need to store the desktop Id so i can access the notes correspongind to that desktop
     // const desktopId
-    const noteList = document.getElementById('notesList')
-    const noteInfo = document.getElementById('newNote')
-    const noteTitle = noteInfo.getElementsByClassName('noteTitle')[0]
-    
-    function renderNoteTitle(aNote) {
-        let n = document.createElement('li')
-        n.setAttribute('class', ' pad5')
-        n.innerHTML = `<a id=${aNote.id} data-id="note" class="font-noStyle" href="#${aNote.title}"> ${aNote.title}</a>`
-        noteList.prepend(n)
-    }
     
     function renderNoteInfo(aNote) {
         while(noteTitle.firstChild){
@@ -35,20 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
         `
         noteTitle.appendChild(n)
     }
-    
-    function renderAllNotes() { 
-        fetch('http://localhost:3000/notes')
-        .then(resp => resp.json())
-        .then(notes =>{
-            const myNotes = notes.filter( note =>{
-                return note.desktop_id === 2 //steve Id here (desktopId)
-            })
-            myNotes.forEach(element => {
-                renderNoteTitle(element)
-            });
-        })
-    }
-    renderAllNotes()
 
     function returnEditForm() {
         const editForm = document.createElement('form')
@@ -113,9 +119,8 @@ document.addEventListener('DOMContentLoaded', () => {
             editForm.dataset.id = e.target.dataset.id
             editForm.title.value = noteT
             editForm.content.value = noteC
-            editForm.addEventListener('submit', (event)=> { //problem (does it twice)
+            editForm.addEventListener('submit', (event)=> {
                 event.preventDefault()
-                debugger
                 fetch(`http://localhost:3000/notes/${e.target.dataset.id}`,{
                     method: "PUT",
                     headers: {

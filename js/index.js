@@ -12,44 +12,48 @@ const login = () => {
     loginId.addEventListener('submit', e => {
         let username = e.target.username.value
         const theme = document.querySelector('#theme')
+        fetch('http://localhost:3000/desktops')
+        .then(resp => resp.json())
+        .then(json => { 
+            // JORDAN'S THEME
+            if (e.target.id == 'loginForm' && e.target.username.value == json[0].owner){
+                e.target.username.value = ""
+                theme.href = 'css/jordanTheme.css'
+                
+                // MY THEME
+            }else if (e.target.id == 'loginForm' && e.target.username.value == json[1].owner){
+                e.target.username.value = ""
+                const loginScreen = document.getElementById('loginScreen')
+                theme.href = 'css/stephenTheme.css'
 
-        // JORDAN'S THEME
-        if (e.target.id == 'loginForm' && e.target.username.value == 'Jordan'){
-            e.target.username.value = ""
-            theme.href = 'css/jordanTheme.css'
-
-        // MY THEME
-        }else if (e.target.id == 'loginForm' && e.target.username.value == 'Stephen'){
-            e.target.username.value = ""
+                
+                // VAPORWAVE'S THEME
+            }else if (e.target.id == 'loginForm' && e.target.username.value == json[2].owner){
+                e.target.username.value = ""
+                const loginScreen = document.getElementById('loginScreen')
+                theme.href = 'css/mattTheme.css'
+                
+                // INVALID USERNAME
+            }else {
+                alert('Please enter a valid username.')
+            }
+            
+            // HIDE LOGIN SCREEN ON LOGIN
             const loginScreen = document.getElementById('loginScreen')
-            theme.href = 'css/stephenTheme.css'
-
-        // VAPORWAVE'S THEME
-        }else if (e.target.id == 'loginForm' && e.target.username.value == 'Vaporwave'){
-            e.target.username.value = ""
-            const loginScreen = document.getElementById('loginScreen')
-            theme.href = 'css/mattTheme.css'
-
-        // INVALID USERNAME
-        }else {
-            alert('Please enter a valid username.')
-        }
-
-        // HIDE LOGIN SCREEN ON LOGIN
-        const loginScreen = document.getElementById('loginScreen')
-        loginScreen.style.display = "none"
-
-        // PLAY LOGIN SOUND
-        const x = document.getElementById("loginSound")
-        x.volume = 0.2
-        x.play()
-        const sysAppName = document.getElementById('systemApplication')
-        sysAppName.innerHTML = `Welcome, ${username}!`
+            loginScreen.style.display = "none"
+            
+            // PLAY LOGIN SOUND
+            const x = document.getElementById("loginSound")
+            x.volume = 0.2
+            x.play()
+            const sysAppName = document.getElementById('systemApplication')
+            sysAppName.innerHTML = `Welcome, ${username}!`
+        })
     })  
-
+        
 }
-
-
+    
+    
 // SYSTEM NAVIGATION AND WIDGET APPLICATION FUNCTIONS
 document.addEventListener('click', e => {
 
