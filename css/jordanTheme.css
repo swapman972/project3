@@ -14,7 +14,7 @@ body{
     width: auto !important; 
     width:900px;
     background-color: rgb(115, 128, 157);
-    background-image: url('../app/assets/images/paris_bg.gif');
+    background-image: url('../app/assets/images/Paris_nice.jpg');
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -266,4 +266,14 @@ animation-name: fadeOut;
     margin:-10px 0 0 8px;
 }
 
+#NYCweather{
+    display: none;
+}
 
+#LIweather{
+    display: none;
+}
+
+#Pweather{
+    display: block;
+}

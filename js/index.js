@@ -10,6 +10,7 @@ const login = () => {
 
     const loginId = document.getElementById('loginForm')
     loginId.addEventListener('submit', e => {
+        e.preventDefault()
         let username = e.target.username.value
         const theme = document.querySelector('#theme')
         fetch('http://localhost:3000/desktops')
@@ -19,13 +20,13 @@ const login = () => {
             if (e.target.id == 'loginForm' && e.target.username.value == json[0].owner){
                 e.target.username.value = ""
                 theme.href = 'css/jordanTheme.css'
+                const weatherWget= document.getElementById('weatherApp')
                 
                 // MY THEME
             }else if (e.target.id == 'loginForm' && e.target.username.value == json[1].owner){
                 e.target.username.value = ""
                 const loginScreen = document.getElementById('loginScreen')
                 theme.href = 'css/stephenTheme.css'
-
                 
                 // VAPORWAVE'S THEME
             }else if (e.target.id == 'loginForm' && e.target.username.value == json[2].owner){
@@ -36,6 +37,7 @@ const login = () => {
                 // INVALID USERNAME
             }else {
                 alert('Please enter a valid username.')
+                location.reload()
             }
             
             // HIDE LOGIN SCREEN ON LOGIN

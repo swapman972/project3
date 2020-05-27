@@ -49,24 +49,45 @@
             <div id="mySidebar" class="sidebar">
                 <div id="date-month" class="font-white font40"></div>
                 <div id="weatherApp">
-                    <!-- New york weather -->
-                    <!-- <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/?unit=us" data-label_1="NEW YORK" data-label_2="Weather" data-theme="weather_one" >NEW YORK Weather</a> -->
-
-                    <!-- Long island weather -->
-                    <!-- <a class="weatherwidget-io" href="https://forecast7.com/en/40d60n73d56/11569/" data-label_1="POINT LOOKOUT" data-label_2="WEATHER" data-theme="weather_one" >POINT LOOKOUT WEATHER</a> -->
-
-                    <!-- Paris weather -->
-                    <a class="weatherwidget-io" href="https://forecast7.com/en/48d862d35/paris/" data-label_1="PARIS" data-label_2="Weather" data-theme="weather_one" >PARIS Weather</a>
-                    <script>
-                    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
-                        if(!d.getElementById(id)){js=d.createElement(s);
-                            js.id=id;
-                            js.src='https://weatherwidget.io/js/widget.min.js';
-                            fjs.parentNode.insertBefore(js,fjs);
-                        }}
-                        (document,'script','weatherwidget-io-js');
-                    </script>
-
+                    <div id="NYCweather">
+                        <!-- New york weather -->
+                        <a class="weatherwidget-io" href="https://forecast7.com/en/40d71n74d01/new-york/?unit=us" data-label_1="NEW YORK" data-label_2="Weather" data-theme="weather_one" >NEW YORK Weather</a>
+                        <script>
+                            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+                                if(!d.getElementById(id)){js=d.createElement(s);
+                                    js.id=id;
+                                    js.src='https://weatherwidget.io/js/widget.min.js';
+                                    fjs.parentNode.insertBefore(js,fjs);
+                                }}
+                                (document,'script','weatherwidget-io-js');
+                            </script>
+                    </div>
+                    <div id="LIweather">
+                        <!-- Long island weather  -->
+                        <a class="weatherwidget-io" href="https://forecast7.com/en/40d60n73d56/11569/" data-label_1="POINT LOOKOUT" data-label_2="WEATHER" data-theme="weather_one" >POINT LOOKOUT WEATHER</a>
+                        <script>
+                        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+                            if(!d.getElementById(id)){js=d.createElement(s);
+                                js.id=id;
+                                js.src='https://weatherwidget.io/js/widget.min.js';
+                                fjs.parentNode.insertBefore(js,fjs);
+                            }}
+                            (document,'script','weatherwidget-io-js');
+                        </script>
+                    </div>
+                    <div id="Pweather">
+                        <!-- Paris weather -->
+                        <a class="weatherwidget-io" href="https://forecast7.com/en/48d862d35/paris/" data-label_1="PARIS" data-label_2="Weather" data-theme="weather_one" >PARIS Weather</a>
+                        <script>
+                            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];
+                                if(!d.getElementById(id)){js=d.createElement(s);
+                                    js.id=id;
+                                    js.src='https://weatherwidget.io/js/widget.min.js';
+                                    fjs.parentNode.insertBefore(js,fjs);
+                                }}
+                                (document,'script','weatherwidget-io-js');
+                            </script>
+                    </div>
                 </div>
                 <div id="calculatorWidget">
                     <table cellpadding="0" cellspacing="0" border="0">
