@@ -1,51 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // ALSO SET DEFER ON SCRIPT TAGS AT THE BOTTOM OF THE HTML
     login()
     dateTime()
 })
 
+
+// SPLASH USER LOGIN SCREEN
 const login = () => {
+
     const loginId = document.getElementById('loginForm')
     loginId.addEventListener('submit', e => {
         let username = e.target.username.value
-            if (e.target.id == 'loginForm' && e.target.username.value == 'Jordan'){
+        const theme = document.querySelector('#theme')
+
+        // JORDAN'S THEME
+        if (e.target.id == 'loginForm' && e.target.username.value == 'Jordan'){
             e.target.username.value = ""
-            const theme = document.querySelector('#theme')
             theme.href = 'css/jordanTheme.css'
-            const loginScreen = document.getElementById('loginScreen')
-            loginScreen.style.display = "none"
-            const x = document.getElementById("loginSound")
-            x.volume = 0.2
-            x.play()
-            const sysAppName = document.getElementById('systemApplication')
-            sysAppName.innerHTML = `Welcome, ${username}!`
+
+        // MY THEME
         }else if (e.target.id == 'loginForm' && e.target.username.value == 'Stephen'){
             e.target.username.value = ""
             const loginScreen = document.getElementById('loginScreen')
             theme.href = 'css/stephenTheme.css'
-            loginScreen.style.display = "none"
-            const x = document.getElementById("loginSound")
-            x.volume = 0.2
-            x.play()
-            const sysAppName = document.getElementById('systemApplication')
-            sysAppName.innerHTML = `Welcome, ${username}!`
+
+        // VAPORWAVE'S THEME
         }else if (e.target.id == 'loginForm' && e.target.username.value == 'Vaporwave'){
             e.target.username.value = ""
             const loginScreen = document.getElementById('loginScreen')
             theme.href = 'css/mattTheme.css'
-            loginScreen.style.display = "none"
-            const x = document.getElementById("loginSound")
-            x.volume = 0.2
-            x.play()
-            const sysAppName = document.getElementById('systemApplication')
-            sysAppName.innerHTML = `Welcome, ${username}!`
+
+        // INVALID USERNAME
         }else {
             alert('Please enter a valid username.')
         }
+
+        // HIDE LOGIN SCREEN ON LOGIN
+        const loginScreen = document.getElementById('loginScreen')
+        loginScreen.style.display = "none"
+
+        // PLAY LOGIN SOUND
+        const x = document.getElementById("loginSound")
+        x.volume = 0.2
+        x.play()
+        const sysAppName = document.getElementById('systemApplication')
+        sysAppName.innerHTML = `Welcome, ${username}!`
     })  
+
 }
 
+
+// SYSTEM NAVIGATION AND WIDGET APPLICATION FUNCTIONS
 document.addEventListener('click', e => {
-    const notesWindow = document.getElementById('notesWindow')
+
+    // SYSTEM APPLIE ICON 'LOGOUT' FUNCTION
     if (e.target.id == "systemApple" && e.target.dataset.id == "hide"){
         e.target.dataset.id = "show"
         const appleIcon = document.getElementById("logOut").style.display = "block"
@@ -58,73 +66,42 @@ document.addEventListener('click', e => {
         const loginScreen = document.getElementById('loginScreen')  
         loginScreen.style.zIndex = 25
         loginScreen.style.display = "block"
+
+    // SYSTEM WIDGET BUTTON 'SHOW/HIDE' FUNCTION
     }else if (e.target.dataset.id == "closed"){
         e.target.dataset.id = "open"
         document.getElementById("mySidebar").style.transform = "translateX(-100%)"
     }else if (e.target.dataset.id == "open"){
         e.target.dataset.id = "closed"
         document.getElementById("mySidebar").style.transform = "translateX(0)"
-    }else if (e.target.id == "closeNotes"){
-        notesWindow.style.display = "none"
-    }else if(e.target.id == "appNotes"){
-        notesWindow.style.display = "block"
-    }else if (e.target.id == "closeMusic"){
-        musicWindow.style.display = "none"
-    }else if(e.target.id == "appPokedex"){
-        pokedexWindow.style.display = "block"
-    }else if(e.target.id == "closePokedex"){
-        pokedexWindow.style.display = "none"
-    }else if(e.target.id == "appHangman"){
-        gameReset()
-        hangmanWindow.style.display = "block"
-        playIntro()
-    }else if(e.target.id == "closeStopTrump"){
-        hangmanWindow.style.display = "none"
-    }else if(e.target.id == "soundFolder"){
-        soundWindow.style.display = "block"
-    }else if(e.target.id == "closeSounds"){
-        soundWindow.style.display = "none"
-    }else if(e.target.id == "RPS"){
-        rockPaperScissorWindow.style.display = "block"
-    }else if(e.target.id == "closeRPS"){
-        rockPaperScissorWindow.style.display = "none"
     }
+
 })
 
+
+// SYSTEM & WIDGET DATE-TIME VARIABLES
 const dateTime = () => {
     const date = new Date()
     const weekday = { 
         timeZone: "America/New_York", 
         hour12: true,
         weekday: 'long',
-        // year: 'numeric',
-        // month: 'long',
-        // day: 'numeric',
-        // hour: 'numeric',
-        // minute: 'numeric'
     }
     const monthDay = { 
         timeZone: "America/New_York", 
         hour12: true,
-        // weekday: 'long',
-        // year: 'numeric',
         month: 'long',
         day: 'numeric',
-        // hour: 'numeric',
-        // minute: 'numeric'
     }
-
     const time = { 
         timeZone: "America/New_York", 
         hour12: true,
         weekday: 'short',
-        // // year: 'numeric',
-        // month: 'long',
-        // day: 'numeric',
         hour: 'numeric',
         minute: 'numeric'
-	}
-
+    }
+    
+    // CONVERTING TIME OUTPUT TO A USABLE STRING FOR DISPLAY 
     const timeDisplay = document.querySelector('#date-time').innerHTML = 
     `${date.toLocaleString('en-US', time)}`
 
@@ -133,10 +110,4 @@ const dateTime = () => {
     ${date.toLocaleString('en-US', weekday)}, <br>
     ${date.toLocaleString('en-US', monthDay)}
     `
-}
-
-
-const systemAppName = () => {
-    
-    
 }

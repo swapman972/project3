@@ -1,3 +1,12 @@
+document.addEventListener('click', e => {
+    const notesWindow = document.getElementById('notesWindow')
+    if (e.target.id == "closeNotes"){
+        notesWindow.style.display = "none"
+    }else if(e.target.id == "appNotes"){
+        notesWindow.style.display = "block"
+    }
+})
+
 document.addEventListener('DOMContentLoaded', () => {
     // we need to store the desktop Id so i can access the notes correspongind to that desktop
     // const desktopId

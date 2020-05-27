@@ -1,3 +1,4 @@
+// GLOBAL VARIABLES
 const musicWindow = document.querySelector('#musicWindow')
 const musicList = document.querySelector('.musicList')
 const songDisplay = document.querySelector('#songDisplay')
@@ -7,6 +8,7 @@ let song = new Audio()
 let currentSong = 0
 let currentSongTitle = ""
 
+// MUSIC ICON AND WINDOW FUNCTIONALITY
 document.addEventListener('dblclick', e => {
     if (e.target.id == "musicFolder"){
         musicWindow.style.display = "block"
@@ -16,7 +18,13 @@ document.addEventListener('dblclick', e => {
         playSong()
     }
 })
+document.addEventListener('click', e => {
+    if (e.target.id == "closeMusic"){
+        musicWindow.style.display = "none"
+    }
+})
 
+// SONG QUEUE
 let songs = [
     "./app/assets/music/☆ＳＥＩＮＷＡＶＥ☆２０００☆.mp3",
     "./app/assets/music/Blank-Banshee_Teen-Pregnancy.mp3",
@@ -33,12 +41,14 @@ let songs = [
     "./app/assets/music/The-Weeknd_Wicked-Games.mp3"
 ]
 
+// PLAY SONG
 const playSong = () => {
     song.src = songs[currentSong]
     songDisplay.textContent = currentSongTitle
     song.play()
 }
 
+// PAUSE-PLAY FUNCTIONALITY
 const playPause = () => {
     const playPauseBtn = document.querySelector('#play-pause')
     if (song.paused){
@@ -50,7 +60,7 @@ const playPause = () => {
     }
 }
 
-/*PREVIOUS-NEXT*/
+// PREVIOUS-NEXT
 document.addEventListener('click', e => {
     if(e.target.id == "previousSong"){
         currentSong = currentSong - 1
@@ -65,7 +75,7 @@ document.addEventListener('click', e => {
     }
 })
 
-
+// TRACK LENGTH TRACKER BAR
 song.addEventListener('timeupdate', function(){
     const position = song.currentTime / song.duration
     fillBar.style.width = position * 100 + "%"

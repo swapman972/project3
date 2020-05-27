@@ -263,7 +263,6 @@ animation-name: fadeOut;
 }
 .folderName{
     position: fixed;
-    margin:-10px 0 0 8px;
+    text-align: center;
+    margin:-10px 0 0 10px;
 }
-
-

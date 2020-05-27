@@ -1,4 +1,10 @@
-// add a shiney version
+document.addEventListener('click', e => {
+    if(e.target.id == "appPokedex"){
+        pokedexWindow.style.display = "block"
+    }else if(e.target.id == "closePokedex"){
+        pokedexWindow.style.display = "none"
+    }
+})
 
 document.addEventListener('DOMContentLoaded', () => {
     const pokedexPage = document.getElementById('pokedex')

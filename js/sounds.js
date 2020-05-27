@@ -1,3 +1,11 @@
+document.addEventListener('click', e => {
+    if(e.target.id == "soundFolder"){
+        soundWindow.style.display = "block"
+    }else if(e.target.id == "closeSounds"){
+        soundWindow.style.display = "none"
+    }
+})
+
 let randomSound = {
     airhorn: "./app/assets/sounds/airhorn.mp3",
     anotherOne: "./app/assets/sounds/another-one.mp3",

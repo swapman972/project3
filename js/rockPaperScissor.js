@@ -1,3 +1,11 @@
+document.addEventListener('click', e => {
+    if(e.target.id == "RPS"){
+        rockPaperScissorWindow.style.display = "block"
+    }else if(e.target.id == "closeRPS"){
+        rockPaperScissorWindow.style.display = "none"
+    }
+})
+
 let userScore = 0
 let compScore = 0
 const userScoreSpan = document.getElementById('user-score')
