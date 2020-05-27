@@ -3,6 +3,7 @@ const musicWindow = document.querySelector('#musicWindow')
 const musicList = document.querySelector('.musicList')
 const songDisplay = document.querySelector('#songDisplay')
 const fillBar = document.querySelector('#fill')
+// volume visual
 const max = document.querySelector('.max')
 const midMax = document.querySelector('.midMax')
 const mid = document.querySelector('.mid')
@@ -132,8 +133,6 @@ document.addEventListener('click', e => {
             midMin.style.backgroundColor = "white"
             min.style.backgroundColor = "white"
         }
-        console.log(newVolume)
-
     
     }else if(e.target.id == "volumeDown" && song.volume > 0){
         let volDown = song.volume -= 0.2
@@ -170,8 +169,6 @@ document.addEventListener('click', e => {
             midMin.style.backgroundColor = "white"
             min.style.backgroundColor = "white"
         }
-        console.log(newVolume)
-
     }
 })
 // const volumeBar = () => {
