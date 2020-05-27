@@ -3,9 +3,16 @@ const musicWindow = document.querySelector('#musicWindow')
 const musicList = document.querySelector('.musicList')
 const songDisplay = document.querySelector('#songDisplay')
 const fillBar = document.querySelector('#fill')
+const max = document.querySelector('.max')
+const midMax = document.querySelector('.midMax')
+const mid = document.querySelector('.mid')
+const midMin = document.querySelector('.midMin')
+const min = document.querySelector('.min')
 
 let song = new Audio()
-song.volume = 0.5
+song.volume = 0.4
+midMin.style.backgroundColor = "greenyellow"
+min.style.backgroundColor = "#439637"
 let currentSong = 0
 let currentSongTitle = ""
 
@@ -54,10 +61,10 @@ const playPause = () => {
     const playPauseBtn = document.querySelector('#play-pause')
     if (song.paused){
         song.play()
-        playPauseBtn.textContent = "❚❚"
+        playPauseBtn.innerHTML = "❚❚"
     } else if (song.play){
         song.pause()
-        playPauseBtn.textContent = "▶"
+        playPauseBtn.innerHTML = "▶"
     }
 }
 
@@ -81,3 +88,92 @@ song.addEventListener('timeupdate', function(){
     const position = song.currentTime / song.duration
     fillBar.style.width = position * 100 + "%"
 })
+
+// VOLUME FUNCTIONALITY
+document.addEventListener('click', e => {
+
+    if(e.target.id == "volumeUp" && song.volume < 1.0){
+        let volUp = song.volume += 0.2
+        let newVolume = Math.round(volUp * 10)
+        if(newVolume > 8){
+            max.style.backgroundColor = "red"
+            midMax.style.backgroundColor = "orange"
+            mid.style.backgroundColor = "yellow"
+            midMin.style.backgroundColor = "greenyellow"
+            min.style.backgroundColor = "#439637"
+        }else if(newVolume > 6){
+            max.style.backgroundColor = "white"
+            midMax.style.backgroundColor = "orange"
+            mid.style.backgroundColor = "yellow"
+            midMin.style.backgroundColor = "greenyellow"
+            min.style.backgroundColor = "#439637"
+        }else if(newVolume > 4){
+            max.style.backgroundColor = "white"
+            midMax.style.backgroundColor = "white"
+            mid.style.backgroundColor = "yellow"
+            midMin.style.backgroundColor = "greenyellow"
+            min.style.backgroundColor = "#439637"
+       }else if(newVolume > 2){
+            max.style.backgroundColor = "white"
+            midMax.style.backgroundColor = "white"
+            mid.style.backgroundColor = "white"
+            midMin.style.backgroundColor = "greenyellow"
+            min.style.backgroundColor = "#439637"
+        }else if(newVolume > 0){
+            max.style.backgroundColor = "white"
+            midMax.style.backgroundColor = "white"
+            mid.style.backgroundColor = "white"
+            midMin.style.backgroundColor = "white"
+            min.style.backgroundColor = "#439637"
+        }else if(newVolume == 0){
+            max.style.backgroundColor = "white"
+            midMax.style.backgroundColor = "white"
+            mid.style.backgroundColor = "white"
+            midMin.style.backgroundColor = "white"
+            min.style.backgroundColor = "white"
+        }
+        console.log(newVolume)
+
+    
+    }else if(e.target.id == "volumeDown" && song.volume > 0){
+        let volDown = song.volume -= 0.2
+        let newVolume = Math.round(volDown * 10)
+        if(newVolume == 8){
+            console.log("hi")
+            max.style.backgroundColor = "white"
+            midMax.style.backgroundColor = "orange"
+            mid.style.backgroundColor = "yellow"
+            midMin.style.backgroundColor = "greenyellow"
+            min.style.backgroundColor = "#439637"
+        }else if(newVolume == 6){
+            max.style.backgroundColor = "white"
+            midMax.style.backgroundColor = "white"
+            mid.style.backgroundColor = "yellow"
+            midMin.style.backgroundColor = "greenyellow"
+            min.style.backgroundColor = "#439637"
+       }else if(newVolume == 4){
+            max.style.backgroundColor = "white"
+            midMax.style.backgroundColor = "white"
+            mid.style.backgroundColor = "white"
+            midMin.style.backgroundColor = "greenyellow"
+            min.style.backgroundColor = "#439637"
+        }else if(newVolume == 2){
+            max.style.backgroundColor = "white"
+            midMax.style.backgroundColor = "white"
+            mid.style.backgroundColor = "white"
+            midMin.style.backgroundColor = "white"
+            min.style.backgroundColor = "#439637"
+        }else if(newVolume == 0){
+            max.style.backgroundColor = "white"
+            midMax.style.backgroundColor = "white"
+            mid.style.backgroundColor = "white"
+            midMin.style.backgroundColor = "white"
+            min.style.backgroundColor = "white"
+        }
+        console.log(newVolume)
+
+    }
+})
+// const volumeBar = () => {
+
+// }

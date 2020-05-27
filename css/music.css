@@ -68,6 +68,31 @@ ul#musicList>li:hover{
     background-color: rgb(64, 64, 64, 0.556);
     border-radius: 20%;
 }
+.max{
+    height: 9px;
+    width: auto;
+    border-top: solid 1px black;
+}
+.midMax{
+    height: 9px;
+    width: auto;
+    border-top: solid 1px black;
+}
+.mid{
+    height: 9px;
+    width: auto;
+    border-top: solid 1px black;
+}
+.midMin{
+    height: 9px;
+    width: auto;
+    border-top: solid 1px black;
+}
+.min{
+    height: 9px;
+    width: auto;
+    border-top: solid 1px black;
+}
 /* #handle{
     width: 6px;
     height: 6px;
