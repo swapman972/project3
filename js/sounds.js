@@ -1,8 +1,11 @@
 //open and close sound folder
-document.addEventListener('click', e => {
-    if(e.target.id == "soundFolder"){
+document.addEventListener('dblclick', e => {
+    if (e.target.id == "soundFolder"){
         soundWindow.style.display = "block"
-    }else if(e.target.id == "closeSounds"){
+    }
+})
+document.addEventListener('click', e => {
+    if(e.target.id == "closeSounds"){
         soundWindow.style.display = "none"
     }
 })

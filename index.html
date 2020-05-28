@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="css/hangman.css">
         <link rel="stylesheet" href="css/notes.css">
         <link rel="stylesheet" href="css/music.css">
+        <link rel="stylesheet" href="css/youtube.css">
         <link rel="stylesheet" href="css/appNav.css">
         <link rel="stylesheet" href="css/sounds.css">
         <link rel="stylesheet" href="css/rockPaperScissor.css">
@@ -265,16 +266,16 @@
                             <ul id="musicList">
                                 <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="0" href="#">☆ＳＥＩＮＷＡＶＥ☆２０００☆</a></li>
                                 <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="1" href="#">Blank Banshee - Teen Pregnancy</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="2" href="#">ESPRIT 空想 - Play That Thing Again</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="3" href="#">George Clanton - Never Late Again</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="4" href="#">Jay-Z & Kanye West - O.T.I.S</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="5" href="#">Notorious BIG - Big Poppa</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="6" href="#">Notorious BIG - Juicy</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="7" href="#">Notorious BIG - One More Chance</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="8" href="#">Partly 曇った</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="9" href="#">The Weeknd - House of Balloons</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="10" href="#">The Weeknd - Montreal</a></li>
-                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="11" href="#">The Weeknd - The Birds Pt 1</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="2" href="#">Unknown Artist - Right As Rain</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="3" href="#">ESPRIT 空想 - Play That Thing Again</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="4" href="#">George Clanton - Never Late Again</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="5" href="#">Jay-Z & Kanye West - O.T.I.S</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="6" href="#">Notorious BIG - Big Poppa</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="7" href="#">Notorious BIG - Juicy</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="8" href="#">Notorious BIG - One More Chance</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="9" href="#">Partly 曇った</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="10" href="#">The Weeknd - House of Balloons</a></li>
+                                <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="11" href="#">The Weeknd - Montreal</a></li>
                                 <li style="padding-top: 5px;"><a class="font-noStyle" data-id="musicTrack" data-track="12" href="#">The Weeknd - Wicked Games</a></li>
                             </ul>
                         </td>
@@ -324,6 +325,19 @@
                     </tr>
                 </table>
             </div>
+
+            <!-- VIDEO -->
+            <div id="youtubeWindow">
+                <table width="100%" cellpadding="0" cellspacing="0" border="0">
+                    <tr>
+                        <td width="20px" valign="top"><button id="closeYoutube">X</button></td>
+                    </tr>
+                    <tr>
+                        <td><iframe width="1000" height="562" src="https://www.youtube.com/embed/MFb1eG5CgzI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td>
+                    </tr>
+                </table>
+            </div>
+
 
             <!-- SOUNDS -->
             <div id="soundWindow">
@@ -398,7 +412,7 @@
                       </li>
                       <li>
                         <span class="appTag">YouTube</span>
-                        <a href="#"><img class="appIcon" src="app/assets/images/youtubeIcon.gif"/></a>
+                        <a href="#"><img id="appYoutube" class="appIcon" src="app/assets/images/youtubeIcon.gif"/></a>
                       </li>
                       <li>
                          <span class="appTag">Pokedex</span>
@@ -419,6 +433,7 @@
     <script defer src="js/index.js"></script>
     <script defer src="js/notes.js"></script>
     <script defer src="js/music.js"></script>
+    <script defer src="js/youtube.js"></script>
     <script defer src="js/pokedex.js"></script>
     <script defer src="js/hangman.js"></script>
     <script defer src="js/rockPaperScissor.js"></script>    

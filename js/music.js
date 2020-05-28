@@ -37,6 +37,7 @@ document.addEventListener('click', e => {
 let songs = [
     "./app/assets/music/☆ＳＥＩＮＷＡＶＥ☆２０００☆.mp3",
     "./app/assets/music/Blank-Banshee_Teen-Pregnancy.mp3",
+    "./app/assets/music/delacases_right-as-rain.mp3",
     "./app/assets/music/ESPRIT-空想-200-Electronica_Play-That-Thing-Again.mp3",
     "./app/assets/music/George-Clanton_Never-Late-Again.mp3",
     "./app/assets/music/Jay-Z_&_Kanye-West_OTIS.mp3",
@@ -44,9 +45,8 @@ let songs = [
     "./app/assets/music/Notorious-BIG_Juicy.mp3",
     "./app/assets/music/Notorious-BIG_One-More-Chance.mp3",
     "./app/assets/music/Partly 曇った.mp3",
-    "./app/assets/music/The-Weeknd_House-of-Balloons .mp3",
+    "./app/assets/music/The-Weeknd_House-of-Balloons.mp3",
     "./app/assets/music/The-Weeknd_Montreal.mp3",
-    "./app/assets/music/The-Weeknd_The-Birds-Pt-1.mp3",
     "./app/assets/music/The-Weeknd_Wicked-Games.mp3"
 ]
 
