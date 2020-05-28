@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // ALSO SET DEFER ON SCRIPT TAGS AT THE BOTTOM OF THE HTML
     login()
     dateTime()
+    setInterval(function() {
+        dateTime()
+    }, 1 * 1000)
 })
 
 
