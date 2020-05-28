@@ -47,7 +47,8 @@ let songs = [
     "./app/assets/music/Partly 曇った.mp3",
     "./app/assets/music/The-Weeknd_House-of-Balloons.mp3",
     "./app/assets/music/The-Weeknd_Montreal.mp3",
-    "./app/assets/music/The-Weeknd_Wicked-Games.mp3"
+    "./app/assets/music/The-Weeknd_Wicked-Games.mp3",
+    "./app/assets/music/Signs_remake.mp3"    
 ]
 
 // PLAY SONG
