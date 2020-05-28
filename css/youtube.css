@@ -8,14 +8,14 @@
     display: none;
 }
 #closeYoutube{
-    background-color: rgba(255, 255, 255, 0.803);
+    background-color: rgba(0, 0, 0, 0.803);
     border: none;
 }
 #closeYoutube:hover{
-    background-color: rgb(206, 206, 206, 0.803);
+    background-color: rgba(255, 0, 0, 0.858);
     border: none;
 }
 #closeYoutube:active{
-    background-color: rgb(157, 157, 157, 0.803);
+    background-color: rgba(170, 4, 4, 0.803);
     border: none;
 }
