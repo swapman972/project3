@@ -1,3 +1,4 @@
+//open and close RPS game
 document.addEventListener('click', e => {
     if(e.target.id == "RPS"){
         rockPaperScissorWindow.style.display = "block"
@@ -21,12 +22,14 @@ const rsp = document.getElementById('RPS')
 
 let soundForGame = new Audio()
 
+//loading the audio
 let gameSound = {
     fire: "./app/assets/sounds/fireSound.mp3",
     grass: "./app/assets/sounds/grassSound.mp3",
     water: "./app/assets/sounds/waterSound.mp3",
     intro: "./app/assets/sounds/pokeIntro.mp3"
 }
+//function to play intro audio
 const playGameIntro = () => {
     soundForGame.src = gameSound["intro"]
     soundForGame.volume = 0.4
@@ -34,11 +37,13 @@ const playGameIntro = () => {
 }
 rsp.addEventListener("click", ()=>{ playGameIntro()})
 
+//function to play choice audio
 const playElementSound = (element) => {
     soundForGame.src = gameSound[element]
     soundForGame.play()
 }
 
+//function to display pokemon picture for elements
 function pokemonPic() {
     let randomFire = Math.floor(Math.random() * 12)
     fetch('https://pokeapi.co/api/v2/type/fire/')
@@ -80,12 +85,14 @@ function pokemonPic() {
     })
 }
 
+//function to get the computer to pick rock paper or scissor
 function getComputerChoice() {
     const choices = ['Fire', 'Grass', 'Water']
     const randomNum = Math.floor(Math.random() * 3)
     return choices[randomNum]
 }
 
+//function to change score if win
 function win(user, comp) {
     userScore++
     userScoreSpan.innerHTML = userScore
@@ -93,6 +100,7 @@ function win(user, comp) {
     result.innerHTML = `${user} beats ${comp}. You win!`
 }
 
+//function to change score if lose
 function lose(user, comp) {
     compScore++
     compScoreSpan.innerHTML = compScore
@@ -100,8 +108,10 @@ function lose(user, comp) {
     result.innerHTML = `${user} loses to ${comp}. You lost..`
 }
 
+//function to not change score if draw
 function draw(user, comp) { result.innerHTML = `It's a draw`}
 
+//function to run a game
 function game(userChoice) {
     const computerChoice = getComputerChoice()
     switch (userChoice + computerChoice) {
@@ -140,6 +150,7 @@ function main() {
         game('Water') 
     })
 
+    //restart brand new game without closing
     restartBtn.addEventListener('click', ()=> {
         compScoreSpan.innerHTML = 0
         userScoreSpan.innerHTML = 0
@@ -149,6 +160,7 @@ function main() {
         pokemonPic()
     })
 
+    //change your pokemon pics
     changePokeBtn.addEventListener('click', ()=>{ 
         result.innerHTML = "Choose your Pokemon"
         pokemonPic() 

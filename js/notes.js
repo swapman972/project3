@@ -1,3 +1,4 @@
+// open and closing note app
 document.addEventListener('click', e => {
     const notesWindow = document.getElementById('notesWindow')
     if (e.target.id == "closeNotes"){
@@ -12,6 +13,7 @@ const noteList = document.getElementById('notesList')
 const noteInfo = document.getElementById('newNote')
 const noteTitle = noteInfo.getElementsByClassName('noteTitle')[0]
 
+// function to fetch all notes
 function renderAllNotes() {
     while(noteList.firstChild){
         noteList.removeChild(noteList.firstChild)
@@ -30,6 +32,7 @@ function renderAllNotes() {
     })
 }
 
+// function to show all notes (on the side)
 function renderNoteTitle(aNote) {
     let n = document.createElement('li')
     n.setAttribute('class', ' pad5')
@@ -37,69 +40,68 @@ function renderNoteTitle(aNote) {
     noteList.prepend(n)
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    // we need to store the desktop Id so i can access the notes correspongind to that desktop
-    // const desktopId
-    
-    function renderNoteInfo(aNote) {
-        while(noteTitle.firstChild){
-            noteTitle.removeChild(noteTitle.firstChild)
-        }
-        noteTitle.innerHTML = `<h2>${aNote.title}</h2>`
-        let n = document.createElement('p')
-        n.innerHTML = `<a>${aNote.content}</a>
-        <br>
-        <br>
-        <button data-id=${aNote.id} id="editNoteBtn">Edit this note</button>
-        <button data-id=${aNote.id} id="deleteNoteBtn">Delete this note</button>
-        `
-        noteTitle.appendChild(n)
+// function to show the info of one note (on the other side)
+function renderNoteInfo(aNote) {
+    while(noteTitle.firstChild){
+        noteTitle.removeChild(noteTitle.firstChild)
     }
+    noteTitle.innerHTML = `<h2>${aNote.title}</h2>`
+    let n = document.createElement('p')
+    n.innerHTML = `<a>${aNote.content}</a>
+    <br>
+    <br>
+    <button data-id=${aNote.id} id="editNoteBtn">Edit this note</button>
+    <button data-id=${aNote.id} id="deleteNoteBtn">Delete this note</button>
+    `
+    noteTitle.appendChild(n)
+}
 
-    function returnEditForm() {
-        const editForm = document.createElement('form')
-        //You can have an entire table inside a form. You can have a form inside a table cell. 
-        //You cannot have part of a table inside a form.
-        editForm.className = "editNoteForm"
-        editForm.innerHTML =`
-        <table width="500" cellpadding="0" cellspacing="0" border="0">
-            <tr>
-                <td width="100%"><h3>Edit your Note!</h3></td>
-            </tr>
-            <tr>
-                <td width="100%" valign="top">
-                        <input class="addNoteTitle" 
-                        type="text"
-                        name="title"
-                        value=""
-                        placeholder="Edit your note title.."/>
-                </td>
-            </tr>
-            <tr>
-                <td width="100%" valign="top">
-                    <textarea
-                        class="addNoteContent"
-                        type="text"
-                        name="content"
-                        value=""
-                        placeholder="Edit your content..."></textarea>
-                </td>
-            </tr>
-            <tr>
-                <td width="100">
-                    <input class="addNoteSubmit"
-                    type="submit"
-                    name="submit"
-                    value="Edit Your Note"
-                    class="editNoteSubmit"
-                    />
-                </td>
-            </tr>
-        </table>`
-        return editForm
-    }
+// function creating and returning Form to edit a note
+function returnEditForm() {
+    const editForm = document.createElement('form')
+    //You can have an entire table inside a form. You can have a form inside a table cell. 
+    //You cannot have part of a table inside a form.
+    editForm.className = "editNoteForm"
+    editForm.innerHTML =`
+    <table width="500" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td width="100%"><h3>Edit your Note!</h3></td>
+        </tr>
+        <tr>
+            <td width="100%" valign="top">
+                    <input class="addNoteTitle" 
+                    type="text"
+                    name="title"
+                    value=""
+                    placeholder="Edit your note title.."/>
+            </td>
+        </tr>
+        <tr>
+            <td width="100%" valign="top">
+                <textarea
+                    class="addNoteContent"
+                    type="text"
+                    name="content"
+                    value=""
+                    placeholder="Edit your content..."></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td width="100">
+                <input class="addNoteSubmit"
+                type="submit"
+                name="submit"
+                value="Edit Your Note"
+                class="editNoteSubmit"
+                />
+            </td>
+        </tr>
+    </table>`
+    return editForm
+}
 
-    
+document.addEventListener('DOMContentLoaded', () => {    
+    //When a note is clicked, it fetches and shows its content
     noteList.addEventListener('click', (e) =>{
         if(e.target.dataset.id === "note"){
             fetch(`http://localhost:3000/notes/${e.target.id}`)
@@ -110,6 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
     
+    //event listener for editing and deleting
     document.addEventListener("click", (e) =>{
         if(e.target.id === "editNoteBtn"){
             let noteT = e.target.parentElement.parentElement.firstElementChild.innerText
@@ -160,6 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
+    //creating a form for creating a new note
     const newNoteBtn = document.getElementById('newNoteBtn')
     const newForm = document.createElement('form')
     //You can have an entire table inside a form. You can have a form inside a table cell. 
@@ -201,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </tr>
     </table>`
     
+    //event listener to create a new note
     newNoteBtn.addEventListener('click', () =>{
         if(noteTitle.firstElementChild && noteTitle.firstElementChild.tagName === "FORM"){
             noteTitle.removeChild(noteTitle.firstElementChild)
@@ -220,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if(document.getElementById('systemApplication').innerHTML === "Welcome, Jordan!"){ dId = 1 }
         else if (document.getElementById('systemApplication').innerHTML === "Welcome, Stephen!"){ dId = 2 }
         else if (document.getElementById('systemApplication').innerHTML === "Welcome, VaporMax!"){ dId = 3 }
-        debugger
         fetch('http://localhost:3000/notes', {
             method: 'POST',
             headers: {

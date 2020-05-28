@@ -1,3 +1,4 @@
+//open and close sound folder
 document.addEventListener('click', e => {
     if(e.target.id == "soundFolder"){
         soundWindow.style.display = "block"
@@ -6,6 +7,7 @@ document.addEventListener('click', e => {
     }
 })
 
+//loading up audios
 let randomSound = {
     airhorn: "./app/assets/sounds/airhorn.mp3",
     anotherOne: "./app/assets/sounds/another-one.mp3",
@@ -21,6 +23,7 @@ let randomSound = {
     ohNo: "./app/assets/sounds/oh-no.mp3"
 }
 
+//function to assign audio to button
 let soundStart = new Audio()
 const soundWindow = document.getElementById('soundWindow')
 function playSound(params) {
@@ -28,6 +31,7 @@ function playSound(params) {
     soundStart.play()
 }
 
+//event listener to trigger audio
 soundWindow.addEventListener('click', (e)=>{
     if(e.target.className === "bruit"){
         playSound(e.target.id)
