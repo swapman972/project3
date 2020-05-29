@@ -65,21 +65,27 @@ const wordArray = [
     "COHEN",
     "RUSSIA",
     "MELANIA",
-    "XENOPHOBIA"
+    "XENOPHOBIA",
+    "JOHN",
+    "MANHATTAN",
+    "PELOSI"
 ]
 
 // QUESTION REPOSITORY
 const phraseArray = [
     "Trump has reportedly dealt with THIS 6 times for his business properties",
-    "THIS one of Trump's favorite restaurants",
-    "THIS company is said to have been responsible for Donald Trump's election win in 2016",
-    "THIS is known to be a powerful tool that helps Republican partisanship",
-    "Though not winning the popular vote, THIS 'college' is said to have helped Trump's 2016 election",
-    "Trump claims he is taking this medication to combat Covid-19",
-    "Convicted felon and Trump's former lawyer from 2006 to 2018",
-    "There was an investigation regarding collusion between the Trump team and THIS country",
+    "THIS is one of Trump's favorite restaurants",
+    "THIS social media company is said to have been responsible for Donald Trump's election win in 2016",
+    "THIS is known to be a powerful tool that helps Republican partisanship by manipulating district boundaries",
+    "Though not winning the popular vote, THIS body of electors (aka 'college') decided Trump's 2016 election",
+    "In May 2020, Trump claimed he was taking THIS medication to prevent contracting Covid-19",
+    "THIS convicted felon was Trump's lawyer from 2006 to 2018",
+    "There was an investigation regarding collusion between THIS country and the Trump administration",
     "THIS person is said to have plagiarized Michelle Obama's convention speech",
-    "The dislike of or prejudice against people from other countries"
+    "The dislike of or prejudice against people from other countries is known as...",
+    "Donald Trump's middle name",
+    "Donald Trump's birthplace",
+    "In February 2020, THIS speaker of the house tore up Trump's state of the union address"
 ]
 
 
@@ -177,7 +183,8 @@ function checkIfGameWon() {
     if (wordStatus === answer) {
         document.querySelector('#gameJail').style.display = "block"
         document.getElementById('gameHint').innerHTML = 'YOU STOPPED TRUMP!!!'
-        setTimeout(gameReset, 5000)
+        setTimeout(playGameWon, 1)
+        setTimeout(gameReset, 4000)
     }
 }
 
@@ -234,6 +241,7 @@ updateHangmanPicture()
 let soundbite = new Audio()
 let currentSoundbite = 0
 const introSoundbite = "./app/assets/sounds/stopTrump/americanDream.mp3"
+const wonGameSoundbite = "./app/assets/sounds/stopTrump/jail.mp3"
 const endGameSoundbite = "./app/assets/sounds/stopTrump/greatest.mp3"
 
 let soundbites = [
@@ -243,6 +251,8 @@ let soundbites = [
     "./app/assets/sounds/stopTrump/makeSense.mp3",
     "./app/assets/sounds/stopTrump/poorPerson.mp3",
     "./app/assets/sounds/stopTrump/fakeNews.mp3",
+    "./app/assets/sounds/stopTrump/china.mp3",
+    "./app/assets/sounds/stopTrump/didntDoAnything.mp3",
     "./app/assets/sounds/stopTrump/stupid.mp3"
 ]
 
@@ -254,8 +264,13 @@ const playIntro = () => {
 
 // IN GAME SOUNDBITE
 const playSoundbite = () => {
-    randomNum = Math.floor(Math.random() * 6)
+    randomNum = Math.floor(Math.random() * 8)
     soundbite.src = soundbites[randomNum]
+    soundbite.play()
+}
+// GAME WON SOUNDBITE
+const playGameWon = () => {
+    soundbite.src = wonGameSoundbite
     soundbite.play()
 }
 
