@@ -4,6 +4,12 @@ document.addEventListener('click', e => {
         rockPaperScissorWindow.style.display = "block"
     }else if(e.target.id == "closeRPS"){
         rockPaperScissorWindow.style.display = "none"
+        compScoreSpan.innerHTML = 0
+        userScoreSpan.innerHTML = 0
+        userScore = 0
+        compScore = 0
+        result.innerHTML = "Choose your Pokemon"
+        pokemonPic()
     }
 })
 

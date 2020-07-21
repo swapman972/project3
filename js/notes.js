@@ -24,7 +24,7 @@ function renderAllNotes() {
         const myNotes = notes.filter( note =>{
             if(document.getElementById('systemApplication').innerHTML === "Welcome, Jordan!"){ return note.desktop_id === 1 }
             else if (document.getElementById('systemApplication').innerHTML === "Welcome, Stephen!"){ return note.desktop_id === 2 }
-            else if (document.getElementById('systemApplication').innerHTML === "Welcome, VaporMax!"){ return note.desktop_id === 3 }
+            else if (document.getElementById('systemApplication').innerHTML === "Welcome, Vaporwave!"){ return note.desktop_id === 4 }
         })
         myNotes.forEach(element => {
             renderNoteTitle(element)
@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let dId = 0
         if(document.getElementById('systemApplication').innerHTML === "Welcome, Jordan!"){ dId = 1 }
         else if (document.getElementById('systemApplication').innerHTML === "Welcome, Stephen!"){ dId = 2 }
-        else if (document.getElementById('systemApplication').innerHTML === "Welcome, VaporMax!"){ dId = 3 }
+        else if (document.getElementById('systemApplication').innerHTML === "Welcome, Vaporwave!"){ dId = 4 }
         fetch('http://localhost:3000/notes', {
             method: 'POST',
             headers: {

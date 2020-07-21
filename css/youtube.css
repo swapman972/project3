@@ -1,5 +1,5 @@
 #youtubeWindow{
-    position: relative;
+    position: absolute;
     top: 20vh;
     left: 30vw;
     width: fit-content;

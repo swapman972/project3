@@ -14,7 +14,7 @@ Note.destroy_all
 
 jordan = Desktop.create(owner: "Jordan", age: 24, adult: true, bio: "Backend master")
 steve = Desktop.create(owner: "Stephen", age: 30, adult: true, bio: "Frontend sensei")
-matt = Desktop.create(owner: "VaporMax", age: 25, adult: true, bio: "Vapor Master")
+matt = Desktop.create(owner: "Vaporwave", age: 25, adult: true, bio: "Vapor Master")
 
 note1 = Note.create(title: "First entry", content: "This is a test but I'll miss Matt", desktop: jordan)
 note2 = Note.create(title: "Test", content: "test test test", desktop: steve)
