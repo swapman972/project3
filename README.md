@@ -11,6 +11,9 @@ This app is a personal desktop clone that features multiple apps including:
 ## Description
 An in-depth paragraph about your project and overview of use.
 
+Ruby on Rails was used to set up the back end as API. 
+JavaScript, CSS and HTML were used for the front end. 
+
 ## Getting Started
 
 ### Dependencies
